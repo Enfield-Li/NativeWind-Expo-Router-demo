@@ -4,3 +4,9 @@ export type TemplateQuestion = {
   content: string;
   icon?: string;
 };
+
+export type ChatMessage = {
+  id: number;
+  content: string;
+    isQuestion: boolean;
+};

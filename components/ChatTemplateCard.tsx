@@ -11,9 +11,9 @@ export default function ChatTemplateCard({ question }: Props) {
       {/* Title */}
       <View className="flex-row mb-3">
         <Ionicons
-          color="rgb(104, 188, 203)"
-          style={{ fontSize: 20 }}
           name="settings-outline"
+          style={{ fontSize: 20 }}
+          color="rgb(104, 188, 203)"
         />
 
         <Text className="text-white ml-2">{question.title}</Text>

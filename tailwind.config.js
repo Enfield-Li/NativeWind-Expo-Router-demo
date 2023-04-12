@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       backgroundColor: {
         main: "rgb(19, 22, 32)",
+        navi: "rgb(10, 12, 25)",
       },
     },
   },

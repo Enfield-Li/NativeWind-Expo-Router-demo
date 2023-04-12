@@ -1,3 +1,4 @@
+import { LinearGradient } from "expo-linear-gradient";
 import { StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -6,15 +7,11 @@ type Props = {};
 function TabThree(props: Props) {
   return (
     <View className="flex-1 items-center justify-center bg-slate-400">
-      {/* <View className="bg-orange-400">
-        <Stack.Screen options={{ headerShown: false }} />
-
-        <Text>TabThree</Text>
-      </View> */}
-
-      <View>
-        <Text>Open up App.js to start wat on your app!</Text>
-      </View>
+      <LinearGradient
+        // Button Linear Gradient
+        style={styles.button}
+        colors={["rgba(41,68,136,1)", "rgba(19,22,31,1)"]}
+      ></LinearGradient>
     </View>
   );
 }
@@ -22,8 +19,10 @@ function TabThree(props: Props) {
 export default TabThree;
 
 const styles = StyleSheet.create({
-  icon: {
-    width: 32,
-    height: 32,
+  button: {
+    flex: 1,
+    padding: 15,
+    alignItems: "center",
+    borderRadius: 5,
   },
 });

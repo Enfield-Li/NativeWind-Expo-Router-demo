@@ -1,10 +1,30 @@
 import { Stack } from "expo-router";
+import { useState } from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { FlatList, TextInput } from "react-native-gesture-handler";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import ChatTemplateCard from "../../components/ChatTemplateCard";
-import { TemplateQuestion } from "../../types";
+import { ChatMessage, TemplateQuestion } from "../../types";
+import ChatQuestion from "../../components/ChatQuestion";
+import ChatAnswer from "../../components/ChatAnswer";
 
 function TabOne() {
+  const [input, setInput] = useState("");
+  const [questions, setQuestions] = useState<ChatMessage[]>([
+    {
+      id: 1,
+      isQuestion: true,
+      content:
+        "whasdf;lalsfksafsafd;alsfdasdfasfasfasfsddsfasfsafsafsafasfsafasfasfasfasfasfasfasfasflsfdsafsafsfasfas;fa;sfalsfasfjlsfasfasfjalsjf",
+    },
+    {
+      id: 2,
+      isQuestion: false,
+      content:
+        "whasdf;lalsfksafsafd;alsfdasdfasfasfasfsddsfasfsafsafsafasfsafasfasfasfasfasfasfasfasflsfdsafsafsfasfas;fa;sfalsfasfjlsfasfasfjalsjf",
+    },
+  ]);
+
   const templateQuestions: TemplateQuestion[] = [
     { id: 1, title: "语言翻译", content: "【有志者，事竟成】用英文怎么说" },
     { id: 2, title: "难题破解", content: "请帮我列出双色球的预测方法？" },
@@ -28,14 +48,16 @@ function TabOne() {
       <Stack.Screen
         options={{
           headerRight: () => (
-            <Ionicons
-              color="white"
-              style={{ fontSize: 20 }}
-              name="settings-outline"
-            />
+            <View className="mr-3">
+              <Ionicons
+                color="white"
+                style={{ fontSize: 20 }}
+                name="settings-outline"
+              />
+            </View>
           ),
           headerLeft: () => (
-            <View className="flex-row justify-center items-center bg-yellow-200 rounded-full p-1 px-2">
+            <View className="ml-3 flex-row justify-center items-center bg-yellow-200 rounded-full p-1 px-2">
               <Text className="bg-black w-5 h-5 rounded-full mr-1 text-white text-center font-semibold text-5">
                 +
               </Text>
@@ -46,12 +68,10 @@ function TabOne() {
           headerTitle: "AI聊天",
           headerTitleStyle: {
             fontSize: 20,
-            fontWeight: "bold",
             color: "white",
+            fontWeight: "bold",
           },
-          headerStyle: {
-            backgroundColor: "rgb(19, 22, 32)",
-          },
+          headerStyle: { backgroundColor: "rgb(19, 22, 32)" },
           headerShadowVisible: false,
         }}
       />
@@ -63,9 +83,35 @@ function TabOne() {
               <ChatTemplateCard question={question} />
             </View>
           ))}
+
+          {questions.map((chatMessage) => (
+            <View key={chatMessage.id}>
+              {chatMessage.isQuestion ? (
+                <ChatQuestion question={chatMessage} />
+              ) : (
+                <ChatAnswer answer={chatMessage} />
+              )}
+            </View>
+          ))}
         </ScrollView>
 
-        <View className="h-20 bg-main"></View>
+        <View className="p-3 h-20 bg-main flex-row items-center justify-center rounded-t-3xl">
+          <TextInput
+            className="border-2 pl-5 w-72 h-12 text-white border-violet-500 border-solid rounded-full"
+            value={input}
+            onChangeText={setInput}
+            placeholderTextColor="white"
+            placeholder="输入你想问的..."
+          />
+
+          <View className="flex-1 ml-3 bg-emerald-400 h-10 rounded-full items-center justify-center">
+            <Ionicons
+              color="white"
+              style={{ fontSize: 20 }}
+              name="paper-plane"
+            />
+          </View>
+        </View>
       </View>
     </View>
   );
@@ -73,4 +119,14 @@ function TabOne() {
 
 export default TabOne;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  button: {
+    padding: 15,
+    alignItems: "center",
+    borderRadius: 5,
+  },
+  text: {
+    fontSize: 15,
+    color: "#fff",
+  },
+});
