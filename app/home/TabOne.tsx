@@ -1,5 +1,5 @@
 import { Stack } from "expo-router";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { FlatList, TextInput } from "react-native-gesture-handler";
 import Ionicons from "react-native-vector-icons/Ionicons";
@@ -10,6 +10,7 @@ import ChatAnswer from "../../components/ChatAnswer";
 
 function TabOne() {
   const [input, setInput] = useState("");
+  const scrollViewRef = useRef<ScrollView | null>(null);
   const [questions, setQuestions] = useState<ChatMessage[]>([
     {
       id: 1,
@@ -42,6 +43,23 @@ function TabOne() {
       content: "身高180cm，体重180斤，那么BMI值是多少？",
     },
   ];
+
+  const handleAddItem = () => {
+    if (scrollViewRef.current) {
+      scrollViewRef.current.scrollToEnd({ animated: true });
+    }
+  };
+
+  function onSubmit() {
+    if (input) {
+      setQuestions((prev) => [
+        ...prev,
+        { id: prev.length + 2, isQuestion: true, content: input },
+      ]);
+      setInput("");
+      handleAddItem();
+    }
+  }
 
   return (
     <View className="flex-1">
@@ -77,7 +95,7 @@ function TabOne() {
       />
 
       <View className="flex-1 bg-main justify-between">
-        <ScrollView>
+        <ScrollView ref={scrollViewRef}>
           {templateQuestions.map((question) => (
             <View key={question.id}>
               <ChatTemplateCard question={question} />
@@ -102,13 +120,15 @@ function TabOne() {
             onChangeText={setInput}
             placeholderTextColor="white"
             placeholder="输入你想问的..."
+            onSubmitEditing={onSubmit}
           />
 
           <View className="flex-1 ml-3 bg-emerald-400 h-10 rounded-full items-center justify-center">
             <Ionicons
               color="white"
-              style={{ fontSize: 20 }}
               name="paper-plane"
+              onPress={onSubmit}
+              style={{ fontSize: 20 }}
             />
           </View>
         </View>
