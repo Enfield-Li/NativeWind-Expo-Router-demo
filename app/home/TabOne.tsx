@@ -58,6 +58,17 @@ function TabOne() {
       ]);
       setInput("");
       handleAddItem();
+
+      setTimeout(() => {
+        setChatMessages((prev) => [
+          ...prev,
+          {
+            id: prev.length + 2,
+            isQuestion: false,
+            content: "您的免费提问次数已用完，可订阅会员获取无限次提问次数",
+          },
+        ]);
+      }, 100);
     }
   }
 
