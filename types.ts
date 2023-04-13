@@ -1,4 +1,4 @@
-export type TemplateQuestion = {
+export type TemplateChat = {
   id: number;
   title: string;
   content: string;
@@ -8,5 +8,5 @@ export type TemplateQuestion = {
 export type ChatMessage = {
   id: number;
   content: string;
-    isQuestion: boolean;
+  isQuestion: boolean;
 };

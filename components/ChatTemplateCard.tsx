@@ -1,11 +1,32 @@
-import React from "react";
-import { View, Text } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import { TemplateQuestion } from "../types";
+import { templateAnswers } from "../constants";
+import { ChatMessage, TemplateChat } from "../types";
 
-type Props = { question: TemplateQuestion };
+type Props = {
+  templateQuestion: TemplateChat;
+  submitTemplateChat(chatMessage: ChatMessage): void;
+};
 
-export default function ChatTemplateCard({ question }: Props) {
+export default function ChatTemplateCard({
+  templateQuestion,
+  submitTemplateChat,
+}: Props) {
+  function onQuestionClick() {
+    submitTemplateChat({ ...templateQuestion, isQuestion: true });
+
+    const templateAnswer = templateAnswers.find(
+      (answer) => answer.title === templateQuestion.title
+    );
+    if (!templateAnswer) {
+      throw new Error("Cannot find the template answer!");
+    }
+
+    setTimeout(() => {
+      submitTemplateChat({ ...templateAnswer, isQuestion: false });
+    }, 1300);
+  }
+
   return (
     <View className="px-3 py-2 my-1">
       {/* Title */}
@@ -16,18 +37,22 @@ export default function ChatTemplateCard({ question }: Props) {
           color="rgb(104, 188, 203)"
         />
 
-        <Text className="text-white ml-2">{question.title}</Text>
+        <Text className="text-white ml-2">{templateQuestion.title}</Text>
       </View>
 
       {/* Content */}
-      <View className="p-3 bg-gray-600 rounded-xl justify-between flex-row">
-        <Text className="text-gray-400">{question.content}</Text>
+      <TouchableOpacity
+        className="p-3 bg-gray-600 rounded-xl justify-between flex-row"
+        onPress={onQuestionClick}
+      >
+        <Text className="text-gray-400">{templateQuestion.content}</Text>
         <Ionicons
           color="white"
           name="arrow-forward"
           style={{ fontSize: 20, color: "rgb(19, 221, 142)" }}
         />
-      </View>
+      </TouchableOpacity>
     </View>
   );
 }
+function getTemplateAnswerFromQuestion(question: TemplateChat) {}

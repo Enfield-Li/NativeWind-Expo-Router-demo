@@ -1,17 +1,17 @@
 import { Stack } from "expo-router";
 import { useRef, useState } from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
-import { FlatList, TextInput } from "react-native-gesture-handler";
+import { TextInput } from "react-native-gesture-handler";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import ChatTemplateCard from "../../components/ChatTemplateCard";
-import { ChatMessage, TemplateQuestion } from "../../types";
-import ChatQuestion from "../../components/ChatQuestion";
 import ChatAnswer from "../../components/ChatAnswer";
+import ChatQuestion from "../../components/ChatQuestion";
+import ChatTemplateCard from "../../components/ChatTemplateCard";
+import { ChatMessage, TemplateChat } from "../../types";
 
 function TabOne() {
   const [input, setInput] = useState("");
   const scrollViewRef = useRef<ScrollView | null>(null);
-  const [questions, setQuestions] = useState<ChatMessage[]>([
+  const [chatMessages, setChatMessages] = useState<ChatMessage[]>([
     {
       id: 1,
       isQuestion: true,
@@ -26,7 +26,7 @@ function TabOne() {
     },
   ]);
 
-  const templateQuestions: TemplateQuestion[] = [
+  const templateQuestions: TemplateChat[] = [
     { id: 1, title: "语言翻译", content: "【有志者，事竟成】用英文怎么说" },
     { id: 2, title: "难题破解", content: "请帮我列出双色球的预测方法？" },
     { id: 3, title: "宇宙奥义", content: "外星人真实存在吗？" },
@@ -52,13 +52,27 @@ function TabOne() {
 
   function onSubmit() {
     if (input) {
-      setQuestions((prev) => [
+      setChatMessages((prev) => [
         ...prev,
         { id: prev.length + 2, isQuestion: true, content: input },
       ]);
       setInput("");
       handleAddItem();
     }
+  }
+
+  function submitTemplateChat(chatMessage: ChatMessage) {
+    const { content, isQuestion } = chatMessage;
+
+    setChatMessages((prev) => [
+      ...prev,
+      {
+        content,
+        isQuestion,
+        id: prev.length + 2,
+      },
+    ]);
+    handleAddItem();
   }
 
   return (
@@ -96,14 +110,17 @@ function TabOne() {
 
       <View className="flex-1 bg-main justify-between">
         <ScrollView ref={scrollViewRef}>
-          {templateQuestions.map((question) => (
-            <View key={question.id}>
-              <ChatTemplateCard question={question} />
+          {templateQuestions.map((question, index) => (
+            <View key={index}>
+              <ChatTemplateCard
+                templateQuestion={question}
+                submitTemplateChat={submitTemplateChat}
+              />
             </View>
           ))}
 
-          {questions.map((chatMessage) => (
-            <View key={chatMessage.id}>
+          {chatMessages.map((chatMessage, index) => (
+            <View key={index}>
               {chatMessage.isQuestion ? (
                 <ChatQuestion question={chatMessage} />
               ) : (
