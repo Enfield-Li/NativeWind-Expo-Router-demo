@@ -49,7 +49,7 @@ export default function AppLayout() {
         headerRight: (props) => <LogoTitle {...props} />,
         headerLeft: (props) => <Text>wat</Text>,
         headerStyle: { backgroundColor: "green" },
-        tabBarActiveTintColor: "tomato",
+        tabBarActiveTintColor: "green",
         title: `${produceTabTitle(route.name)}`,
         tabBarInactiveTintColor: "gray",
         tabBarStyle: {
@@ -57,6 +57,9 @@ export default function AppLayout() {
           paddingTop: 5,
           paddingBottom: 10,
           backgroundColor: "rgb(10, 12, 25)",
+          //   borderBottomWidth: 3,
+          //   borderBottomColor: "white",
+          //   borderRadius: 3,
         },
       })}
     />

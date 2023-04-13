@@ -7,15 +7,12 @@ type Props = {};
 
 function TabTwo(props: Props) {
   return (
-    <SafeAreaView>
-      <View>
-        {/* <Stack.Screen options={{ headerShown: false }} /> */}
+    <View className="h-full justify-center items-center">
+      <Stack.Screen options={{ headerShown: false }} />
 
-        <View className="flex-1">
-          <Text>Open up App.js to start wat on your app!</Text>
-        </View>
-      </View>
-    </SafeAreaView>
+      <Text>tabtwo page</Text>
+      <Text>🛠🛠🛠 under construction 🛠🛠🛠</Text>
+    </View>
   );
 }
 

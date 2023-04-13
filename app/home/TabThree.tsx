@@ -1,3 +1,4 @@
+import { Stack } from "expo-router";
 import { StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -5,16 +6,11 @@ type Props = {};
 
 function TabThree(props: Props) {
   return (
-    <View className="flex-1 items-center justify-center bg-slate-400">
-      {/* <View className="bg-orange-400">
-        <Stack.Screen options={{ headerShown: false }} />
+    <View className="h-full justify-center items-center">
+      <Stack.Screen options={{ headerShown: false }} />
 
-        <Text>TabThree</Text>
-      </View> */}
-
-      <View>
-        <Text>Open up App.js to start wat on your app!</Text>
-      </View>
+      <Text>tabThree page</Text>
+      <Text>🛠🛠🛠 under construction 🛠🛠🛠</Text>
     </View>
   );
 }

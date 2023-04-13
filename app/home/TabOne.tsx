@@ -1,48 +1,26 @@
-import { Stack } from "expo-router";
+import { Stack, useNavigation } from "expo-router";
 import { useRef, useState } from "react";
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  Keyboard,
+} from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import ChatAnswer from "../../components/ChatAnswer";
 import ChatQuestion from "../../components/ChatQuestion";
 import ChatTemplateCard from "../../components/ChatTemplateCard";
-import { ChatMessage, TemplateChat } from "../../types";
+import { templateQuestions } from "../../constants";
+import { ChatMessage } from "../../types";
 
 function TabOne() {
+  const navigation = useNavigation();
   const [input, setInput] = useState("");
   const scrollViewRef = useRef<ScrollView | null>(null);
-  const [chatMessages, setChatMessages] = useState<ChatMessage[]>([
-    {
-      id: 1,
-      isQuestion: true,
-      content:
-        "whasdf;lalsfksafsafd;alsfdasdfasfasfasfsddsfasfsafsafsafasfsafasfasfasfasfasfasfasfasflsfdsafsafsfasfas;fa;sfalsfasfjlsfasfasfjalsjf",
-    },
-    {
-      id: 2,
-      isQuestion: false,
-      content:
-        "whasdf;lalsfksafsafd;alsfdasdfasfasfasfsddsfasfsafsafsafasfsafasfasfasfasfasfasfasfasflsfdsafsafsfasfas;fa;sfalsfasfjlsfasfasfjalsjf",
-    },
-  ]);
-
-  const templateQuestions: TemplateChat[] = [
-    { id: 1, title: "语言翻译", content: "【有志者，事竟成】用英文怎么说" },
-    { id: 2, title: "难题破解", content: "请帮我列出双色球的预测方法？" },
-    { id: 3, title: "宇宙奥义", content: "外星人真实存在吗？" },
-    { id: 4, title: "历史谜题", content: "三星堆文化来自何方？" },
-    {
-      id: 5,
-      title: "学习工作",
-      content: "若xy-x+y=0且xy>0，则1/x-1/y的值是多少？",
-    },
-    { id: 6, title: "美食烹饪", content: "怎么做辣椒炒肉" },
-    {
-      id: 7,
-      title: "养生健康",
-      content: "身高180cm，体重180斤，那么BMI值是多少？",
-    },
-  ];
+  const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
 
   const handleAddItem = () => {
     if (scrollViewRef.current) {
@@ -69,6 +47,7 @@ function TabOne() {
           },
         ]);
       }, 100);
+      Keyboard.dismiss();
     }
   }
 
@@ -100,12 +79,16 @@ function TabOne() {
             </View>
           ),
           headerLeft: () => (
-            <View className="ml-3 flex-row justify-center items-center bg-yellow-200 rounded-full p-1 px-2">
+            <TouchableOpacity
+              className="ml-3 flex-row justify-center items-center bg-yellow-200 rounded-full p-1 px-2"
+              // @ts-ignore
+              onPress={() => navigation.navigate("subscribe")}
+            >
               <Text className="bg-black w-5 h-5 rounded-full mr-1 text-white text-center font-semibold text-5">
                 +
               </Text>
               <Text className="font-bold">订阅</Text>
-            </View>
+            </TouchableOpacity>
           ),
           headerTitleAlign: "center",
           headerTitle: "AI聊天",
