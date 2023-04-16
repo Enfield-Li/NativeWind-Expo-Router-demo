@@ -1,4 +1,4 @@
-import { Tabs } from "expo-router";
+import { Stack, Tabs } from "expo-router";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { Image, Text } from "react-native";
 
@@ -27,41 +27,45 @@ export default function AppLayout() {
   }
 
   return (
-    <Tabs
-      screenOptions={({ route }) => ({
-        // headerShown: false,
-        tabBarIcon: ({ focused, color, size }) => {
-          let iconName = "";
+    <>
+      <Stack.Screen options={{ headerShown: false }} />
 
-          if (route.name === ROUTES.TAB_ONE) {
-            iconName = focused
-              ? "ios-information-circle"
-              : "ios-information-circle-outline";
-          } else if (route.name === ROUTES.TAB_TWO) {
-            iconName = focused ? "ios-list" : "ios-list-outline";
-          } else {
-            iconName = focused ? "ios-leaf-sharp" : "ios-leaf-outline";
-          }
+      <Tabs
+        screenOptions={({ route }) => ({
+          // headerShown: false,
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName = "";
 
-          // You can return any component that you like here!
-          return <Ionicons name={iconName} size={size} color={color} />;
-        },
-        headerRight: (props) => <LogoTitle {...props} />,
-        headerLeft: (props) => <Text>wat</Text>,
-        headerStyle: { backgroundColor: "green" },
-        tabBarActiveTintColor: "green",
-        title: `${produceTabTitle(route.name)}`,
-        tabBarInactiveTintColor: "gray",
-        tabBarStyle: {
-          height: 70,
-          paddingTop: 5,
-          paddingBottom: 10,
-          backgroundColor: "rgb(10, 12, 25)",
-          //   borderBottomWidth: 3,
-          //   borderBottomColor: "white",
-          //   borderRadius: 3,
-        },
-      })}
-    />
+            if (route.name === ROUTES.TAB_ONE) {
+              iconName = focused
+                ? "ios-information-circle"
+                : "ios-information-circle-outline";
+            } else if (route.name === ROUTES.TAB_TWO) {
+              iconName = focused ? "ios-list" : "ios-list-outline";
+            } else {
+              iconName = focused ? "ios-leaf-sharp" : "ios-leaf-outline";
+            }
+
+            // You can return any component that you like here!
+            return <Ionicons name={iconName} size={size} color={color} />;
+          },
+          headerRight: (props) => <LogoTitle {...props} />,
+          headerLeft: (props) => <Text>wat</Text>,
+          headerStyle: { backgroundColor: "green" },
+          tabBarActiveTintColor: "green",
+          title: `${produceTabTitle(route.name)}`,
+          tabBarInactiveTintColor: "gray",
+          tabBarStyle: {
+            height: 70,
+            paddingTop: 5,
+            paddingBottom: 10,
+            backgroundColor: "rgb(10, 12, 25)",
+            //   borderBottomWidth: 3,
+            //   borderBottomColor: "white",
+            //   borderRadius: 3,
+          },
+        })}
+      />
+    </>
   );
 }
