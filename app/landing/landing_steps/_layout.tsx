@@ -8,29 +8,36 @@ type Props = {};
 
 function _layout(props: Props) {
   return (
-    <>
-      <TopTabs
-        className="p-20"
-        tabBarPosition="bottom"
-        screenOptions={{
-          tabBarStyle: {
-            marginBottom: 20,
-            shadowColor: "white",
-          },
-          tabBarItemStyle: {
-            margin: 0,
-            padding: 0,
-            width: 30,
-            height: 30,
-          },
-          tabBarIcon: ({ focused }) => (
-            <Ionicons name="dot-single" color={focused ? "black" : "gray"} />
-          ),
-          tabBarShowLabel: false,
-          animationEnabled: true,
-        }}
-      />
-    </>
+    <TopTabs
+      tabBarPosition="bottom"
+      className=""
+      screenOptions={{
+        tabBarIcon: ({ focused }) => (
+          <Ionicons name="dot-single" color={focused ? "black" : "gray"} />
+        ),
+        tabBarShowLabel: false,
+        animationEnabled: true,
+        tabBarShowIcon: false,
+        tabBarIndicatorStyle: {
+          borderColor: "white",
+          borderBottomColor: "white",
+          borderWidth: 0,
+        },
+        tabBarStyle: {
+          shadowColor: "white",
+          width: 0,
+        },
+        // tabBarItemStyle: {
+        //   //   width: 30,
+        //   //   height: 30,
+        // },
+        // tabBarIconStyle: { borderColor: "white" },
+        // tabBarLabelStyle: { borderColor: "white" },
+        // tabBarIndicatorContainerStyle: { borderColor: "white" },
+        // tabBarContentContainerStyle: { borderColor: "white" },
+        // style
+      }}
+    />
   );
 }
 

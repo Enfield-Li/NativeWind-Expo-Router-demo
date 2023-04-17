@@ -5,7 +5,7 @@ type Props = {};
 
 function c_personalized_way(props: Props) {
   return (
-    <View>
+    <View className="justify-self-center items-center">
       <Text>c_personalized_way</Text>
     </View>
   );

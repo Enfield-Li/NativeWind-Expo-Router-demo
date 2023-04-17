@@ -5,7 +5,7 @@ type Props = {};
 
 function b_save_time(props: Props) {
   return (
-    <View>
+    <View className="justify-self-center items-center">
       <Text>b_save_time</Text>
     </View>
   );
