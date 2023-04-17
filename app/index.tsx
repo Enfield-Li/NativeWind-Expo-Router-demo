@@ -29,7 +29,7 @@ export default function App() {
 
   return (
     <>
-      <Text>hello world</Text>
+      <Redirect href="main" />
     </>
   );
 }

@@ -1,5 +1,5 @@
 import { StyleSheet, Text } from "react-native";
-import { TopTabs } from "../../../utils/TopTabs";
+import { TopTabs } from "../../../../utils/TopTabs";
 
 function TabOne() {
   return (
