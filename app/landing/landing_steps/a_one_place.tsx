@@ -7,6 +7,13 @@ function a_one_place(props: Props) {
   return (
     <View>
       <Text>a_one_place</Text>
+      <Text>a_one_place</Text>
+      <Text>a_one_place</Text>
+      <Text>a_one_place</Text>
+      <Text>a_one_place</Text>
+      <Text>a_one_place</Text>
+      <Text>a_one_place</Text>
+      <Text>a_one_place</Text>
     </View>
   );
 }

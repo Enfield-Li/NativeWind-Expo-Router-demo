@@ -4,10 +4,10 @@ import { TopTabs } from "../../../../utils/TopTabs";
 function TabOne() {
   return (
     <TopTabs
-    screenOptions={{
-      tabBarStyle: { backgroundColor: "yellow" },
-    }}
-  />
+      screenOptions={{
+        tabBarStyle: { backgroundColor: "yellow" },
+      }}
+    />
   );
 }
 

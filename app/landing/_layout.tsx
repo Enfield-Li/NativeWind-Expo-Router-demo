@@ -1,5 +1,5 @@
 import { Button, StyleSheet, Text, View } from "react-native";
-import React from "react";
+import React, { Fragment } from "react";
 import { Slot, Tabs } from "expo-router";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { TopTabs } from "../../utils/TopTabs";
@@ -10,8 +10,12 @@ type Props = {};
 function _layout(props: Props) {
   return (
     <>
-      <Text>clickup</Text>
+      <View className="mt-20 items-center justify-center w-full">
+        <Text>clickup</Text>
+      </View>
+
       <Slot />
+
       <Button title="go" />
     </>
   );
