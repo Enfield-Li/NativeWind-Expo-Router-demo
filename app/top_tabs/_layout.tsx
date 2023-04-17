@@ -8,8 +8,11 @@ export default function AppLayout() {
   return (
     <>
       <TopTabs
+        className="mx-2"
+        initialRouteName="tab_one"
         screenOptions={{
           tabBarStyle: { backgroundColor: "yellow" },
+          swipeEnabled: false,
         }}
       />
     </>
