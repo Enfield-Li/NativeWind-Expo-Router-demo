@@ -1,3 +1,4 @@
+import { Link } from "expo-router";
 import { useState } from "react";
 import {
   Modal,
@@ -59,20 +60,10 @@ const DrawerContent = (props: Props) => {
         </TouchableOpacity>
 
         <Button title="click" onPress={() => console.log("clicked")} />
+        <Link href="top_tabs">top tabs</Link>
       </SafeAreaView>
     </View>
   );
 };
 
 export default DrawerContent;
-
-const styles = StyleSheet.create({
-  modalOverlay: {
-    position: "absolute",
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
-    backgroundColor: "rgba(0,0,0,0.5)",
-  },
-});

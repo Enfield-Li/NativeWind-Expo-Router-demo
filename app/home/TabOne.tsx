@@ -13,7 +13,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import ChatAnswer from "../../components/ChatAnswer";
 import ChatQuestion from "../../components/ChatQuestion";
 import ChatTemplateCard from "../../components/ChatTemplateCard";
-import { templateQuestions } from "../../constants";
+import { templateQuestions } from "../../utils/constants";
 import { ChatMessage } from "../../types";
 
 function TabOne() {

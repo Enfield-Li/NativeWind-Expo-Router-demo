@@ -1,6 +1,6 @@
 import { Text, TouchableOpacity, View } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import { templateAnswers } from "../constants";
+import { templateAnswers } from "../utils/constants";
 import { ChatMessage, TemplateChat } from "../types";
 
 type Props = {

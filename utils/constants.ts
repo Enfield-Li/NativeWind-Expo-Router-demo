@@ -1,4 +1,4 @@
-import { TemplateChat } from "./types";
+import { TemplateChat } from "../types";
 
 export const templateQuestions: TemplateChat[] = [
   { id: 1, title: "语言翻译", content: "【有志者，事竟成】用英文怎么说" },
