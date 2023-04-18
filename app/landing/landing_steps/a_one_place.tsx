@@ -1,22 +1,36 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
-import ClickUpLogoWords from "../../../assets/Click_up_logo_words";
-// import { Svg } from "react-native-svg";
+import { StyleSheet, Text, Image, View } from "react-native";
 import { SvgXml } from "react-native-svg";
 import { loginLogoDataUrl } from "../../../media/imgDataUrl";
+// import firstImg from "../../../media/first.png";
+
 type Props = {};
 
 function a_one_place(props: Props) {
   return (
-    <View className="justify-self-center items-center">
-      <Text>a_one_place</Text>
-      {/* <ClickUpLogoWords /> */}
-      {/* <Svg> </Svg> */}
-      <SvgXml xml={loginLogoDataUrl} width="100%" height="100%" />
+    <View className="items-center justify-center flex-1">
+      <Image
+        resizeMode="contain"
+        className="w-max h-60"
+        source={require("../../../media/first.png")}
+      />
+
+      <Text className="text-2xl font-bold mt-10 tracking-wide">
+        One place for all your work.
+      </Text>
+
+      <Text className="mt-6 text-xs tracking-wide">
+        Tasks, Docs, Goals, and Chat - customizable
+      </Text>
+      <Text className="mt-1 text-xs tracking-wide">to work for everyone.</Text>
     </View>
   );
 }
 
 export default a_one_place;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  top: {
+    position: "absolute",
+    top: 2,
+  },
+});

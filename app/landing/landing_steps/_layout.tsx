@@ -18,15 +18,16 @@ function _layout(props: Props) {
         tabBarShowLabel: false,
         animationEnabled: true,
         tabBarShowIcon: false,
-        tabBarIndicatorStyle: {
-          borderColor: "white",
-          borderBottomColor: "white",
-          borderWidth: 0,
-        },
         tabBarStyle: {
           shadowColor: "white",
           width: 0,
         },
+
+        // tabBarIndicatorStyle: {
+        //   borderColor: "white",
+        //   borderBottomColor: "white",
+        //   borderWidth: 0,
+        // },
         // tabBarItemStyle: {
         //   //   width: 30,
         //   //   height: 30,

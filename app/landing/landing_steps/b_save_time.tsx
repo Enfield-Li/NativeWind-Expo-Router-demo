@@ -1,12 +1,14 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 import React from "react";
 
 type Props = {};
 
 function b_save_time(props: Props) {
   return (
-    <View className="justify-self-center items-center">
-      <Text>b_save_time</Text>
+    <View className="items-center justify-center flex-1">
+      <Image source={{}} />
+      <Text>wtf</Text>
+      <Text>wtf</Text>
     </View>
   );
 }
