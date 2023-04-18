@@ -13,7 +13,11 @@ function _layout(props: Props) {
       className=""
       screenOptions={{
         tabBarIcon: ({ focused }) => (
-          <Ionicons name="dot-single" color={focused ? "black" : "gray"} />
+          <Ionicons
+            size={20}
+            name="dot-single"
+            color={focused ? "#7c4ffc" : "gray"}
+          />
         ),
         tabBarShowLabel: false,
         animationEnabled: true,
@@ -21,6 +25,11 @@ function _layout(props: Props) {
         tabBarStyle: {
           width: 60,
           shadowColor: "white",
+          alignSelf: "center",
+        },
+        tabBarItemStyle: {
+          margin: 0,
+          padding: 0,
           alignSelf: "center",
         },
 
