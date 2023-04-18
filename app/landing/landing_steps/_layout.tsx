@@ -1,6 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
-import { Tabs } from "expo-router";
+import { StyleSheet } from "react-native";
 import Ionicons from "react-native-vector-icons/Entypo";
 import { TopTabs } from "../../../utils/TopTabs";
 
@@ -10,7 +8,6 @@ function _layout(props: Props) {
   return (
     <TopTabs
       tabBarPosition="bottom"
-      className=""
       screenOptions={{
         tabBarIcon: ({ focused }) => (
           <Ionicons
