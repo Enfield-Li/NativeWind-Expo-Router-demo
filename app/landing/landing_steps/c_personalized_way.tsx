@@ -1,19 +1,19 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import LandingSwipeTab from "../../../components/landing/LandingSwipeTab";
 
 type Props = {};
 
 function c_personalized_way(props: Props) {
   return (
-    <View className="items-center justify-center flex-1">
-      <Text className="text-4xl">wtf</Text>
-      <Text>wtf</Text>
-      <Text>wtf</Text>
-      <Text>wtf</Text>
-      <Text>wtf</Text>
-      <Text>wtf</Text>
-      <Text>wtf</Text>
-    </View>
+    <LandingSwipeTab imageSource={require("../../../media/first.png")}>
+      <Text>
+        Personalized to the {"\n"}
+        <Text>way you work.</Text>
+      </Text>
+      <Text>Customize ClickUp to work for you.</Text>
+      <Text>No opinions, just options.</Text>
+    </LandingSwipeTab>
   );
 }
 

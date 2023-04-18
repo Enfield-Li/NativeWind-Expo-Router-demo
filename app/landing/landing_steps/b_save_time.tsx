@@ -1,15 +1,19 @@
 import { StyleSheet, Text, View, Image } from "react-native";
 import React from "react";
+import LandingSwipeTab from "../../../components/landing/LandingSwipeTab";
 
 type Props = {};
 
 function b_save_time(props: Props) {
   return (
-    <View className="items-center justify-center flex-1">
-      <Image source={{}} />
-      <Text>wtf</Text>
-      <Text>wtf</Text>
-    </View>
+    <LandingSwipeTab imageSource={require("../../../media/second.png")}>
+      <Text>
+        Save one day every week, {"\n"}
+        <Text>guaranteed.</Text>
+      </Text>
+      <Text>Tasks, Docs, Goals, and Chat - customizable</Text>
+      <Text>to work for everyone.</Text>
+    </LandingSwipeTab>
   );
 }
 

@@ -16,8 +16,8 @@ function _layout(props: Props) {
       <Slot />
 
       {/* tailwind button */}
-      <TouchableOpacity className="w-11/12 items-center bg-blue-500 py-3 rounded-lg mx-auto mb-6">
-        <Text className="text-white ">go</Text>
+      <TouchableOpacity className="w-11/12 items-center bg-purple-500 py-3 rounded-lg mx-auto mb-6">
+        <Text className="text-white ">Get started</Text>
       </TouchableOpacity>
     </>
   );
