@@ -17,10 +17,11 @@ function _layout(props: Props) {
         ),
         tabBarShowLabel: false,
         animationEnabled: true,
-        tabBarShowIcon: false,
+        tabBarIndicatorStyle: { width: 0 },
         tabBarStyle: {
+          width: 60,
           shadowColor: "white",
-          width: 0,
+          alignSelf: "center",
         },
 
         // tabBarIndicatorStyle: {
