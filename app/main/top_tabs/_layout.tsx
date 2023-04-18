@@ -1,5 +1,5 @@
 import { Stack, Tabs } from "expo-router";
-import Ionicons from "react-native-vector-icons/Ionicons";
+import Icon from "react-native-vector-icons/Icon";
 import { Image, Text, View } from "react-native";
 import { TopTabs } from "../../../utils/TopTabs";
 import { SafeAreaView } from "react-native-safe-area-context";

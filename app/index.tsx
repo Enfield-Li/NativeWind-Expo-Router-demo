@@ -29,7 +29,7 @@ export default function App() {
 
   return (
     <>
-      <Redirect href="landing" />
+      <Redirect href="auth/sign_in_with_password" />
     </>
   );
 }

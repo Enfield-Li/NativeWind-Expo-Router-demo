@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import Ionicons from "react-native-vector-icons/Entypo";
+import Icon from "react-native-vector-icons/Entypo";
 import { TopTabs } from "../../../utils/TopTabs";
 
 type Props = {};
@@ -10,7 +10,7 @@ function _layout(props: Props) {
       tabBarPosition="bottom"
       screenOptions={{
         tabBarIcon: ({ focused }) => (
-          <Ionicons
+          <Icon
             size={20}
             name="dot-single"
             color={focused ? "#7c4ffc" : "gray"}

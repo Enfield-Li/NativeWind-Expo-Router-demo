@@ -8,10 +8,15 @@ type Props = {};
 export default function sign_in({}: Props) {
   const navigation = useNavigation();
   const [input, setInput] = useState("");
+  const [showError, setShowError] = useState(false);
+
+  const isEmailValid = input.includes("@");
 
   function goToNext() {
-    if (input.includes("@")) {
-      navigation.navigate("my_test");
+    if (isEmailValid) {
+      navigation.navigate("auth/confirm_email");
+    } else {
+      setShowError(true);
     }
   }
 
@@ -28,7 +33,13 @@ export default function sign_in({}: Props) {
               onPress={goToNext}
               className="py-3 rounded-lg text-center"
             >
-              <Text className="text-purple-500 font-bold">Next</Text>
+              <Text
+                className={`font-bold ${
+                  isEmailValid ? "text-purple-500" : "text-gray-500"
+                }`}
+              >
+                Next
+              </Text>
             </TouchableOpacity>
           ),
         }}
@@ -44,8 +55,14 @@ export default function sign_in({}: Props) {
           onChangeText={(text) => setInput(text)}
         />
 
-        <Text className="text-gray-600 text-sm mt-2">
-          We'll send you an email to confirm your address
+        <Text
+          className={`text-sm mt-2 ${
+            !showError ? "text-gray-600" : "text-red-600"
+          }`}
+        >
+          {!showError
+            ? "We'll send you an email to confirm your address"
+            : "Whoops! That's not a valid email."}
         </Text>
       </View>
     </View>

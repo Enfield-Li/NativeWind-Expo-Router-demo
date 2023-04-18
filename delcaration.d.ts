@@ -1,3 +1,5 @@
+import { NavigatorScreenParams } from "@react-navigation/native";
+
 export {};
 
 declare global {
@@ -9,6 +11,11 @@ declare global {
       main: undefined;
       sign_in: undefined;
       my_test: undefined;
+
+      auth: undefined;
+      "auth/confirm_email": undefined;
+      "auth/SSO_login": undefined;
+      "auth/sign_in_with_password": undefined;
     }
   }
 }
