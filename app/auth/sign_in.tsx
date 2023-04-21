@@ -1,6 +1,6 @@
 import { Stack, useNavigation } from "expo-router";
-import React, { useState } from "react";
-import { View, Text, Button, TouchableOpacity } from "react-native";
+import { useState } from "react";
+import { Text, TouchableOpacity, View } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 
 type Props = {};
