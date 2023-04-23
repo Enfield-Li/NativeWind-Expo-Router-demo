@@ -1,5 +1,4 @@
 import { create } from "zustand";
-import { devtools, persist } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
 
 interface BearState {
@@ -7,7 +6,7 @@ interface BearState {
   increase: (by: number) => void;
 }
 
-export const useBearStore = create<BearState>()(
+export const useAuthStore = create<BearState>()(
   immer((set) => ({
     bears: 0,
     increase: (by) =>

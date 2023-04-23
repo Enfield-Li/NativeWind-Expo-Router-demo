@@ -1,16 +1,14 @@
 import { Stack } from "expo-router";
 import { useState } from "react";
-import { Button, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import Icon from "react-native-vector-icons/Feather";
-import { useBearStore } from "../../stores/bearStores";
 
 type Props = {};
 
 function sign_in_with_password(props: Props) {
   const [password, setPassword] = useState("");
   const [hidePassword, setHidePassword] = useState(true);
-  const { bears, increase } = useBearStore();
 
   return (
     <View className="flex-1 items-center">
@@ -22,10 +20,6 @@ function sign_in_with_password(props: Props) {
           headerBackButtonMenuEnabled: true,
         }}
       />
-
-      <Text>num:</Text>
-      <Text>{bears}</Text>
-      <Button title="increase" onPress={() => increase(2)} />
 
       <View className="w-full p-3">
         <Text className="text-gray-700 text-xs">Password</Text>
