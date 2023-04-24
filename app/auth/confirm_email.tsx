@@ -1,30 +1,13 @@
-import {
-  Alert,
-  Image,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
-import React from "react";
-import { Link, Stack, useNavigation } from "expo-router";
+import { Stack, useNavigation } from "expo-router";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
-import Tooltip from "rn-tooltip";
+import useShowToast from "../../hooks/useShowToast";
 
 type Props = {};
 
 function confirm_email(props: Props) {
+  const showToast = useShowToast();
   const navigation = useNavigation();
-
-  const createTwoButtonAlert = () =>
-    Alert.alert("Alert Title", "My Alert Msg", [
-      {
-        text: "Cancel",
-        onPress: () => console.log("Cancel Pressed"),
-        style: "cancel",
-      },
-      { text: "OK", onPress: () => console.log("OK Pressed") },
-    ]);
 
   return (
     <View className="flex-1 justify-center items-center mb-20">
@@ -46,7 +29,7 @@ function confirm_email(props: Props) {
       </Text>
 
       <TouchableOpacity
-        onPress={() => Alert.alert("Alert Title")}
+        onPress={() => showToast()}
         className="w-11/12 bg-purple-500 py-3 rounded-lg mx-auto mt-14"
       >
         <Text className="text-white text-center">Open Email App</Text>
@@ -57,14 +40,7 @@ function confirm_email(props: Props) {
       </View>
 
       <TouchableOpacity
-        onPress={() =>
-          Alert.alert("Alert Title", "My Alert Msg", [
-            {
-              text: "Cancel",
-              style: "cancel",
-            },
-          ])
-        }
+        onPress={() => showToast()}
         className="w-11/12 py-3 rounded-lg mx-auto border border-gray-400"
       >
         <Text className="text-gray-500 text-center">Enter the code</Text>

@@ -93,3 +93,9 @@ export const CLIENT_ROUTE = {
   HELP: "help",
   OPTIONS: "options",
 } as const;
+
+const UN_INPLEMENTED_TOAST_OPTIONS = {
+  type: "danger",
+  duration: 1500,
+  placement: "bottom",
+};
