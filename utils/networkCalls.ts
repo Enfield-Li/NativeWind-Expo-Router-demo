@@ -39,6 +39,7 @@ import {
 } from "../types";
 import { deepCopy } from "./deepCopy";
 import { AuthStateType } from "../stores/useAuth";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export async function updateUserDefaultTeamId(
   teamId: number,
@@ -467,7 +468,7 @@ export async function refreshUserToken(authState: AuthStateType) {
     const { defaultTeamId, joinedTeamCount, accessToken } = response.data;
 
     // store accessToken to localStorage
-    localStorage.setItem(ACCESS_TOKEN, accessToken);
+    await AsyncStorage.setItem(ACCESS_TOKEN, accessToken);
 
     // update auth taskState
     loginUser(response.data);
@@ -483,7 +484,7 @@ export async function refreshUserToken(authState: AuthStateType) {
 
     // clear local auth taskState and accessToken
     logoutUser();
-    localStorage.removeItem(ACCESS_TOKEN);
+    await AsyncStorage.removeItem(ACCESS_TOKEN);
     const response = err.response?.data as ErrorResponse;
 
     // if (!isAuthPath) navigate(CLIENT_ROUTE.LOGIN);

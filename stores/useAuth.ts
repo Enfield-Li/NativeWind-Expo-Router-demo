@@ -1,21 +1,23 @@
 import { create } from "zustand";
-import { User, AuthenticationResponse, RegistrationResponse } from "../types";
-import { ACCESS_TOKEN } from "../utils/constant";
-import { deepCopy } from "../utils/deepCopy";
-import { produce } from "immer";
 import { immer } from "zustand/middleware/immer";
+import { AuthenticationResponse, RegistrationResponse, User } from "../types";
 
 export type AuthStateType = {
-  user: User | null;
+  user?: User | null;
+  emailAccount?: string;
   logoutUser: () => void;
   loginUser: (user: AuthenticationResponse) => void;
-  updateTeamCount: (isAddTeam: boolean, teamId: number) => void;
   registerUser: (registrationResponse: RegistrationResponse) => void;
+  addEmail: (email: string) => void;
 };
 
 export const useAuth = create<AuthStateType>()(
   immer((set) => ({
     user: null,
+    addEmail: (email) =>
+      set((state) => {
+        state.emailAccount = email;
+      }),
     loginUser: (user) =>
       set((state) => {
         state.user = user;
@@ -29,8 +31,8 @@ export const useAuth = create<AuthStateType>()(
         state.user = registrationResponse;
 
         // init team activity
-        const teamActiveStatus = deepCopy(registrationResponse.initTeamUIState);
-        teamActiveStatus["folderIds"] = [];
+        // const teamActiveStatus = deepCopy(registrationResponse.initTeamUIState);
+        // teamActiveStatus["folderIds"] = [];
 
         // // store team activity status
         // storeTeamActiveStatusToLocalStorage(
@@ -43,15 +45,6 @@ export const useAuth = create<AuthStateType>()(
         //   ACCESS_TOKEN,
         //   registrationResponse.accessToken
         // );
-      }),
-    updateTeamCount: (isAddTeam, teamId) =>
-      set((state) => {
-        if (!state.user) {
-          throw new Error("User is not initialized");
-        }
-
-        state.user.defaultTeamId = teamId;
-        state.user.joinedTeamCount += isAddTeam ? 1 : -1;
       }),
   }))
 );

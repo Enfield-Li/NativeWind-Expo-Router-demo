@@ -1,24 +1,23 @@
-import axios from "axios";
 import { Stack } from "expo-router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import Icon from "react-native-vector-icons/Feather";
+import { useAuth } from "../../stores/useAuth";
+import useNavigate from "../../hooks/useNavigate";
 
 type Props = {};
 
 function sign_in_with_password(props: Props) {
+  const authState = useAuth();
+  const navigate = useNavigate();
   const [password, setPassword] = useState("");
   const [hidePassword, setHidePassword] = useState(true);
 
-  useEffect(() => {
-    async function get() {
-      const res = await axios.get("http://localhost:8099/test");
-      console.log(res.data);
-    }
-
-    get();
-  }, []);
+  function signIn() {
+    console.log("press");
+    navigate("main");
+  }
 
   return (
     <View className="flex-1 items-center">
@@ -62,6 +61,7 @@ function sign_in_with_password(props: Props) {
 
         <TouchableOpacity
           //   href="my_test"
+          onPress={signIn}
           className="w-full bg-purple-600 py-3 rounded-lg mx-auto mb-4 text-center"
         >
           <Text className="text-white text-center">Sign in</Text>

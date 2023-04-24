@@ -1,12 +1,15 @@
-import { Stack, useNavigation } from "expo-router";
+import { Stack } from "expo-router";
 import { useState } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
+import useNavigate from "../../hooks/useNavigate";
+import { useAuth } from "../../stores/useAuth";
 
 type Props = {};
 
 export default function sign_in({}: Props) {
-  const navigation = useNavigation();
+  const authState = useAuth();
+  const navigate = useNavigate();
   const [input, setInput] = useState("");
   const [showError, setShowError] = useState(false);
 
@@ -14,14 +17,15 @@ export default function sign_in({}: Props) {
 
   function goToNext() {
     if (isEmailValid) {
-      navigation.navigate("auth/confirm_email");
+      authState.addEmail(input);
+      navigate("auth/confirm_email");
     } else {
       setShowError(true);
     }
   }
 
   return (
-    <View className="flex-1 justify-center">
+    <View className="flex-1 justify-center mb-20">
       <Stack.Screen
         options={{
           title: "Email",

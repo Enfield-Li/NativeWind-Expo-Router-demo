@@ -1,11 +1,12 @@
 import axios from "axios";
 import { ACCESS_TOKEN, BEARER, SERVICE_ENDPOINT } from "./constant";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export function createDevAxiosInstance(baseURL: string) {
   const axiosInstance = axios.create({ baseURL });
 
-  axiosInstance.interceptors.request.use((config) => {
-    const accessToken = localStorage.getItem(ACCESS_TOKEN);
+  axiosInstance.interceptors.request.use(async (config) => {
+    const accessToken = await AsyncStorage.getItem(ACCESS_TOKEN);
     if (accessToken && config.headers) {
       config.headers.Authorization = BEARER + accessToken;
     }
