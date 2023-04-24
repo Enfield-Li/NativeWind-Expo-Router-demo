@@ -6,9 +6,9 @@ export const IS_SUB_NAV_OPEN = "is_sub_nav_open";
 export const CURRENT_STATUS_CATEGORY_ID = "current_status_category_id";
 
 export const SERVICE_ENDPOINT = {
+  GATEWAY: "",
   TASK: "http://localhost:8084",
   TEAM: "http://localhost:8088",
-  GATEWAY: "",
   AUTHORIZATION: "http://localhost:8085",
   TEAM_STATUS_CATEGORY: "http://localhost:8089",
 } as const;

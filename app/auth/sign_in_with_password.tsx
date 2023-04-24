@@ -1,5 +1,6 @@
+import axios from "axios";
 import { Stack } from "expo-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import Icon from "react-native-vector-icons/Feather";
@@ -9,6 +10,15 @@ type Props = {};
 function sign_in_with_password(props: Props) {
   const [password, setPassword] = useState("");
   const [hidePassword, setHidePassword] = useState(true);
+
+  useEffect(() => {
+    async function get() {
+      const res = await axios.get("http://localhost:8099/test");
+      console.log(res.data);
+    }
+
+    get();
+  }, []);
 
   return (
     <View className="flex-1 items-center">
