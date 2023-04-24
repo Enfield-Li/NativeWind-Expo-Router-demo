@@ -1,6 +1,8 @@
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
 import { AuthenticationResponse, RegistrationResponse, User } from "../types";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { ACCESS_TOKEN } from "../utils/constant";
 
 export type AuthStateType = {
   user?: User | null;
@@ -21,6 +23,7 @@ export const useAuth = create<AuthStateType>()(
     loginUser: (user) =>
       set((state) => {
         state.user = user;
+        AsyncStorage.setItem(ACCESS_TOKEN, user?.accessToken);
       }),
     logoutUser: () =>
       set((state) => {

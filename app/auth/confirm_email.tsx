@@ -35,8 +35,10 @@ function confirm_email(props: Props) {
         <Text className="text-white text-center">Open Email App</Text>
       </TouchableOpacity>
 
-      <View className="my-5">
-        <Text className="text-gray-500 text-xs">OR</Text>
+      <View className="my-5 items-center flex-row">
+        <View className="border-b w-1/3 border-slate-300" />
+        <Text className="text-gray-500 mx-5 text-xs">OR</Text>
+        <View className="border-b w-1/3 border-slate-300" />
       </View>
 
       <TouchableOpacity

@@ -5,18 +5,35 @@ import { TextInput } from "react-native-gesture-handler";
 import Icon from "react-native-vector-icons/Feather";
 import { useAuth } from "../../stores/useAuth";
 import useNavigate from "../../hooks/useNavigate";
+import { login } from "../../utils/networkCalls";
+import useShowToast from "../../hooks/useShowToast";
 
 type Props = {};
 
 function sign_in_with_password(props: Props) {
   const authState = useAuth();
   const navigate = useNavigate();
+  const showToast = useShowToast();
   const [password, setPassword] = useState("");
   const [hidePassword, setHidePassword] = useState(true);
+  console.log(authState.user);
+
+  const email = authState.emailAccount;
 
   function signIn() {
-    console.log("press");
     navigate("main");
+
+    if (email) {
+      login(
+        { email, password },
+        (response) => {
+          authState.loginUser(response);
+        },
+        (errorMsg) => {
+          showToast(errorMsg[0].message);
+        }
+      );
+    }
   }
 
   return (
@@ -60,7 +77,6 @@ function sign_in_with_password(props: Props) {
         </View>
 
         <TouchableOpacity
-          //   href="my_test"
           onPress={signIn}
           className="w-full bg-purple-600 py-3 rounded-lg mx-auto mb-4 text-center"
         >
