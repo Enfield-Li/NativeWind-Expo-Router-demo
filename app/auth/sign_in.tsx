@@ -53,6 +53,7 @@ export default function sign_in({}: Props) {
         <Text className="text-gray-600 text-lg">Your email address</Text>
 
         <TextInput
+          autoFocus
           value={input}
           className="text-xl"
           onSubmitEditing={goToNext}

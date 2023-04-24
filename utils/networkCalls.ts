@@ -441,7 +441,6 @@ export async function login(
   onSuccess: (data: AuthenticationResponse) => void,
   onFailure: (msg: FieldErrors) => void
 ) {
-  console.log(axiosAuthServiceInstance.getUri());
   try {
     const response =
       await axiosAuthServiceInstance.post<AuthenticationResponse>(
@@ -457,7 +456,10 @@ export async function login(
   }
 }
 
-export async function refreshUserToken(authState: AuthStateType) {
+export async function refreshUserToken(
+  authState: AuthStateType,
+  navigate: any
+) {
   const { loginUser, logoutUser } = authState;
 
   try {
@@ -465,13 +467,14 @@ export async function refreshUserToken(authState: AuthStateType) {
       await axiosAuthServiceInstance.post<AuthenticationResponse>(
         API_ENDPOINT.AUTH_REFRESH_TOKEN
       );
-    const { defaultTeamId, joinedTeamCount, accessToken } = response.data;
-
-    // store accessToken to localStorage
-    await AsyncStorage.setItem(ACCESS_TOKEN, accessToken);
-
     // update auth taskState
     loginUser(response.data);
+
+    navigate("main");
+    // const { defaultTeamId, joinedTeamCount, accessToken } = response.data;
+
+    // // store accessToken to localStorage
+    // await AsyncStorage.setItem(ACCESS_TOKEN, accessToken);
 
     // navigate(
     //   joinedTeamCount > 0 && defaultTeamId
@@ -480,10 +483,10 @@ export async function refreshUserToken(authState: AuthStateType) {
     // );
   } catch (error) {
     const err = error as AxiosError;
-    console.log(err);
 
     // clear local auth taskState and accessToken
     logoutUser();
+    navigate("landing");
     await AsyncStorage.removeItem(ACCESS_TOKEN);
     const response = err.response?.data as ErrorResponse;
 

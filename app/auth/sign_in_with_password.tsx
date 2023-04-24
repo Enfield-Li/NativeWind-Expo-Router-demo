@@ -16,18 +16,16 @@ function sign_in_with_password(props: Props) {
   const showToast = useShowToast();
   const [password, setPassword] = useState("");
   const [hidePassword, setHidePassword] = useState(true);
-  console.log(authState.user);
 
   const email = authState.emailAccount;
 
   function signIn() {
-    navigate("main");
-
     if (email) {
       login(
         { email, password },
         (response) => {
           authState.loginUser(response);
+          navigate("main");
         },
         (errorMsg) => {
           showToast(errorMsg[0].message);
