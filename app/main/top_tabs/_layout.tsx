@@ -12,14 +12,12 @@ export default function AppLayout() {
         screenOptions={{
           swipeEnabled: false,
           tabBarStyle: {
-            height: 33,
+            height: 35,
             borderRadius: 10,
             marginHorizontal: 15,
             shadowColor: "white",
             backgroundColor: "rgb(227, 227, 227)",
-            marginBottom: 10,
           },
-          tabBarIndicatorStyle: { width: 0 },
           tabBarContentContainerStyle: {
             margin: 0,
             padding: 0,
@@ -29,8 +27,15 @@ export default function AppLayout() {
           },
           tabBarInactiveTintColor: "gray",
           tabBarActiveTintColor: "blue",
-          tabBarItemStyle: {
-            backgroundColor: "yellow",
+          tabBarPressColor: "rgb(227, 227, 227)",
+          tabBarIndicatorStyle: {
+            height: 25,
+            marginBottom: 5,
+            borderRadius: 10,
+            borderLeftWidth: 5,
+            borderRightWidth: 5,
+            backgroundColor: "white",
+            borderColor: "rgb(227, 227, 227)",
           },
         }}
       />

@@ -1,6 +1,5 @@
-import { StyleSheet, Text } from "react-native";
-import { TopTabs } from "../../../../utils/TopTabs";
 import { Stack } from "expo-router";
+import { TopTabs } from "../../../../utils/TopTabs";
 
 function TabOne() {
   return (
@@ -13,7 +12,27 @@ function TabOne() {
 
       <TopTabs
         screenOptions={{
-          tabBarStyle: { backgroundColor: "yellow" },
+          tabBarStyle: {
+            height: 50,
+            width: "100%",
+            shadowColor: "white",
+            alignItems: "center",
+            borderBottomWidth: 1,
+            borderBottomColor: "rgb(200, 200, 200)",
+          },
+          tabBarItemStyle: {
+            width: "auto",
+            marginHorizontal: 13,
+            paddingHorizontal: 14,
+          },
+          tabBarIndicatorStyle: {
+            height: 3,
+            left: "10%",
+          },
+          tabBarInactiveTintColor: "gray",
+          tabBarActiveTintColor: "blue",
+          tabBarPressColor: "white",
+          tabBarScrollEnabled: true,
         }}
       />
     </>

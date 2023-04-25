@@ -26,4 +26,42 @@ import Icon from "react-native-vector-icons/FontAwesome";
 
 
 Build:
-`eas build -p android`
+`npx expo prebuild`
+`npx expo run:android`
+
+```
+FAILURE: Build completed with 2 failures.
+
+1: Task failed with an exception.
+-----------
+* Where:
+Script 'D:\development\projects\clickup_clone_mobile\node_modules\expo-modules-autolinking\scripts\android\autolinking_implementation.gradle' line: 326
+
+* What went wrong:
+A problem occurred evaluating project ':expo'.
+> A problem occurred configuring project ':expo-modules-core'.
+   > Failed to notify project evaluation listener.
+      > SDK location not found. Define a valid SDK location with an ANDROID_HOME environment variable or by setting 
+the sdk.dir path in your project's local properties file at 'D:\development\projects\clickup_clone_mobile\android\local.properties'.
+      > Could not get unknown property 'release' for SoftwareComponentInternal set of type org.gradle.api.internal.component.DefaultSoftwareComponentContainer.
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+==============================================================================
+
+2: Task failed with an exception.
+-----------
+* What went wrong:
+A problem occurred configuring project ':expo'.
+> compileSdkVersion is not specified. Please add it to build.gradle
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+==============================================================================
+
+* Get more help at https://help.gradle.org
+```
