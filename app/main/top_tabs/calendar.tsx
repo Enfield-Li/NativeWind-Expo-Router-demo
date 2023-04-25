@@ -8,7 +8,7 @@ type Props = {};
 function TabTwo(props: Props) {
   return (
     <View className="h-full justify-center items-center">
-      <Stack.Screen options={{ headerShown: false }} />
+      <Stack.Screen options={{ headerShown: false, title: "Calendar" }} />
 
       <Text>tabtwo page</Text>
       <Text>🛠🛠🛠 under construction 🛠🛠🛠</Text>

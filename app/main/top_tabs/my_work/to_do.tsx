@@ -1,9 +1,10 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import { useAuth } from "../../../../stores/useAuth";
 
 type Props = {};
 
-const inner_tab = (props: Props) => {
+const todo = (props: Props) => {
   return (
     <View>
       <Text>inner_tab</Text>
@@ -11,6 +12,6 @@ const inner_tab = (props: Props) => {
   );
 };
 
-export default inner_tab;
+export default todo;
 
 const styles = StyleSheet.create({});

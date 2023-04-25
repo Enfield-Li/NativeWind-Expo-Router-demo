@@ -8,11 +8,30 @@ export default function AppLayout() {
   return (
     <>
       <TopTabs
-        className="mx-2"
         initialRouteName="tab_one"
         screenOptions={{
-          tabBarStyle: { backgroundColor: "yellow" },
           swipeEnabled: false,
+          tabBarStyle: {
+            height: 33,
+            borderRadius: 10,
+            marginHorizontal: 15,
+            shadowColor: "white",
+            backgroundColor: "rgb(227, 227, 227)",
+            marginBottom: 10,
+          },
+          tabBarIndicatorStyle: { width: 0 },
+          tabBarContentContainerStyle: {
+            margin: 0,
+            padding: 0,
+            alignSelf: "center",
+            alignItems: "center",
+            justifyContent: "center",
+          },
+          tabBarInactiveTintColor: "gray",
+          tabBarActiveTintColor: "blue",
+          tabBarItemStyle: {
+            backgroundColor: "yellow",
+          },
         }}
       />
     </>

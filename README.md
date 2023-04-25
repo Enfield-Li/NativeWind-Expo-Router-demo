@@ -23,3 +23,7 @@ import Icon from "react-native-vector-icons/FontAwesome";
   <Text className="text-white">Get started</Text>
 </TouchableOpacity>
 ```
+
+
+Build:
+`eas build -p android`

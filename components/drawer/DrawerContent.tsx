@@ -60,7 +60,7 @@ const DrawerContent = (props: Props) => {
         </TouchableOpacity>
 
         <Button title="click" onPress={() => console.log("clicked")} />
-        <Link href="top_tabs">main</Link>
+        <Link href="main">main</Link>
       </SafeAreaView>
     </View>
   );

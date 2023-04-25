@@ -11,33 +11,34 @@ export default function App() {
   const authState = useAuth();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    let intervalId: NodeJS.Timer;
+  //   useEffect(() => {
+  //     let intervalId: NodeJS.Timer;
 
-    async function checkAuthStatus() {
-      const accessToken = await AsyncStorage.getItem(ACCESS_TOKEN);
+  //     async function checkAuthStatus() {
+  //       const accessToken = await AsyncStorage.getItem(ACCESS_TOKEN);
 
-      if (accessToken) {
-        refreshUserToken(authState, navigate);
+  //       if (accessToken) {
+  //         refreshUserToken(authState, navigate);
 
-        intervalId = setInterval(() => {
-          refreshUserToken(authState, navigate);
-        }, 1790000); // 29 min and 50 sec
-      } else if (!accessToken) {
-        navigate("landing");
-      }
-    }
+  //         intervalId = setInterval(() => {
+  //           refreshUserToken(authState, navigate);
+  //         }, 1790000); // 29 min and 50 sec
+  //       } else if (!accessToken) {
+  //         navigate("landing");
+  //       }
+  //     }
 
-    checkAuthStatus();
+  //     checkAuthStatus();
 
-    return () => clearInterval(intervalId);
-  }, []);
+  //     return () => clearInterval(intervalId);
+  //   }, []);
 
   return (
     <View className="flex-1 items-center justify-center">
       <Stack.Screen options={{ headerShown: false }} />
 
-      <Text>loading</Text>
+      {/* <Text>loading</Text> */}
+      <Redirect href="main" />
     </View>
   );
 }
