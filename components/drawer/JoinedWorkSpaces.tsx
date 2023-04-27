@@ -3,40 +3,22 @@ import {
   Image,
   Pressable,
   Text,
+  TouchableOpacity,
   TouchableWithoutFeedback,
   View,
 } from "react-native";
 import { shareLinkDataUrl } from "../../media/imgDataUrl";
 import { Team } from "../../types";
 import Icon from "react-native-vector-icons/Ionicons";
+import useInitTeams from "../../hooks/useInitTeams";
+import { useTeam } from "../../stores/useTeam";
 
 type Props = {
   toggleVisiblity: () => void;
 };
 
 function JoinedWorkSpaces({ toggleVisiblity }: Props) {
-  const teams: Team[] = [
-    {
-      avatar: shareLinkDataUrl,
-      color: "",
-      id: 1,
-      isSelected: true,
-      isPrivate: true,
-      name: "team1",
-      members: [],
-      spaces: [],
-    },
-    {
-      avatar: "",
-      color: "green",
-      id: 2,
-      isSelected: false,
-      isPrivate: true,
-      name: "team2",
-      members: [],
-      spaces: [],
-    },
-  ];
+  const { teamsForRender, selectTeam } = useTeam();
 
   return (
     <View className="flex-1 bg-[#000000b5]">
@@ -58,46 +40,48 @@ function JoinedWorkSpaces({ toggleVisiblity }: Props) {
           </Pressable>
         </View>
 
-        {teams.map((team) => (
-          <Fragment key={team.id}>
-            <View className="flex-row mt-3 bg-gray-300 w-full h-12 rounded-md items-center justify-between px-3">
+        {teamsForRender.map((team) => (
+          <TouchableOpacity
+            key={team.id}
+            onPress={() => selectTeam(team.id!)}
+            className="flex-row mt-3 bg-gray-300 w-full h-12 rounded-md items-center justify-between px-3"
+          >
+            <View className="flex-row items-center justify-center rounded-full overflow-hidden mr-2">
               <View className="flex-row items-center justify-center rounded-full overflow-hidden mr-2">
-                <View className="flex-row items-center justify-center rounded-full overflow-hidden mr-2">
-                  {team.avatar ? (
-                    // avatar
-                    <Image
-                      source={{ uri: team.avatar }}
-                      className="rounded-full w-8 h-8 border items-center justify-center"
-                    />
-                  ) : (
-                    // no avatar
-                    <View
-                      style={{
-                        backgroundColor: !team.avatar ? team.color : "",
-                      }}
-                      className="rounded-full w-8 h-8 items-center justify-center text-center"
-                    >
-                      <Text className="text-white">
-                        {team.name[0].toUpperCase()}
-                      </Text>
-                    </View>
-                  )}
-                </View>
-
-                {/* team name */}
-                <Text className="text-purple-500">{team.name}</Text>
+                {team.avatar ? (
+                  // avatar
+                  <Image
+                    source={{ uri: team.avatar }}
+                    className="rounded-full w-8 h-8 border items-center justify-center"
+                  />
+                ) : (
+                  // no avatar
+                  <View
+                    style={{
+                      backgroundColor: !team.avatar ? team.color : "",
+                    }}
+                    className="rounded-full w-8 h-8 items-center justify-center text-center"
+                  >
+                    <Text className="text-white">
+                      {team.name[0].toUpperCase()}
+                    </Text>
+                  </View>
+                )}
               </View>
 
-              {/* select box */}
-              {team.isSelected ? (
-                <View className="rounded-full w-7 h-7 border-gray-400 border" />
-              ) : (
-                <View className="rounded-full w-7 h-7 border-purple-500 border items-center justify-center">
-                  <View className="rounded-full w-4 h-4 bg-purple-500" />
-                </View>
-              )}
+              {/* team name */}
+              <Text className="text-purple-500">{team.name}</Text>
             </View>
-          </Fragment>
+
+            {/* select box */}
+            {team.isSelected ? (
+              <View className="rounded-full w-7 h-7 border-purple-500 border items-center justify-center">
+                <View className="rounded-full w-4 h-4 bg-purple-500" />
+              </View>
+            ) : (
+              <View className="rounded-full w-7 h-7 border-gray-400 border" />
+            )}
+          </TouchableOpacity>
         ))}
       </View>
     </View>

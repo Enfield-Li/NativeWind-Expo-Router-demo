@@ -16,6 +16,7 @@ import {
 import { deepCopy } from "../utils/deepCopy";
 import { immer } from "zustand/middleware/immer";
 import { determineFolderType } from "../utils/determineList";
+import { storeTeamActiveStatusToLocalStorage } from "../utils/setTeamActiveStatusToLocalStorage";
 
 export type TeamStateType = {
   teamsForRender: Team[];
@@ -46,6 +47,7 @@ export type TeamStateType = {
 };
 
 export const useTeam = create<TeamStateType>()(
+  // @ts-ignore
   immer((set) => ({
     teamsForRender: [],
     originalTeams: [],
@@ -60,6 +62,7 @@ export const useTeam = create<TeamStateType>()(
     selectTeam: (teamId) =>
       set((state) => {
         state.teamActiveStatus.teamId = teamId;
+        syncTeamStateActivity(state);
       }),
     selectList: (list) =>
       set((state) => {
@@ -391,6 +394,8 @@ function syncTeamStateActivity(state: TeamStateType) {
           }
         });
       });
+    } else {
+      team["isSelected"] = false;
     }
   });
 }

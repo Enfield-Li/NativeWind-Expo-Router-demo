@@ -15,8 +15,10 @@ import {
 } from "../media/imgDataUrl";
 import { SvgXml } from "react-native-svg";
 import Loading from "../components/loading/Loading";
+import useInitTeams from "../hooks/useInitTeams";
 
 export default function App() {
+  useInitTeams();
   const authState = useAuth();
   const navigate = useNavigate();
   useInterceptError();
