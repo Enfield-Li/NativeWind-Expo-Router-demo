@@ -1,5 +1,5 @@
-import { Image, Pressable, Text, TouchableOpacity, View } from "react-native";
-import Icon from "react-native-vector-icons/Ionicons";
+import { Text } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { useTeam } from "../../stores/useTeam";
 import TransparentModal from "../TransparentModal";
 
@@ -13,12 +13,14 @@ function SettingsModal({ modalVisible, toggleVisiblity }: Props) {
 
   return (
     <TransparentModal
+      title="Settings"
+      requireFullModal
       modalVisible={modalVisible}
       toggleVisiblity={toggleVisiblity}
     >
-      <View className="absolute bg-white bottom-8 left-4 right-4 p-4 pb-8 rounded-xl">
-        <Text>wat</Text>
-      </View>
+      <SafeAreaView className="absolute bg-white bottom-10 left-4 right-4 top-10 rounded-xl h-full">
+        <Text>underconstruction</Text>
+      </SafeAreaView>
     </TransparentModal>
   );
 }
