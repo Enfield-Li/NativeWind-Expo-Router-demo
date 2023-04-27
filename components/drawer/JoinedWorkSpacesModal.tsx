@@ -1,32 +1,22 @@
-import { Fragment } from "react";
-import {
-  Image,
-  Pressable,
-  Text,
-  TouchableOpacity,
-  TouchableWithoutFeedback,
-  View,
-} from "react-native";
-import { shareLinkDataUrl } from "../../media/imgDataUrl";
-import { Team } from "../../types";
+import { Image, Pressable, Text, TouchableOpacity, View } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
-import useInitTeams from "../../hooks/useInitTeams";
 import { useTeam } from "../../stores/useTeam";
+import TransparentModal from "../TransparentModal";
 
 type Props = {
+  modalVisible: boolean;
   toggleVisiblity: () => void;
 };
 
-function JoinedWorkSpaces({ toggleVisiblity }: Props) {
+function JoinedWorkSpacesModal({ modalVisible, toggleVisiblity }: Props) {
   const { teamsForRender, selectTeam } = useTeam();
 
   return (
-    <View className="flex-1 bg-[#000000b5]">
-      <TouchableWithoutFeedback onPress={toggleVisiblity}>
-        <View className="absolute top-0 bottom-0 right-0 left-0 z-[-1]" />
-      </TouchableWithoutFeedback>
-
-      <View className="absolute bg-white bottom-8 left-4 right-4 p-4 pb-6 rounded-xl">
+    <TransparentModal
+      modalVisible={modalVisible}
+      toggleVisiblity={toggleVisiblity}
+    >
+      <View className="absolute bg-white bottom-8 left-4 right-4 p-4 pb-8 rounded-xl">
         {/* Title */}
         <View className="flex-row justify-between items-center mb-2">
           <View className="flex-row items-center">
@@ -84,8 +74,8 @@ function JoinedWorkSpaces({ toggleVisiblity }: Props) {
           </TouchableOpacity>
         ))}
       </View>
-    </View>
+    </TransparentModal>
   );
 }
 
-export default JoinedWorkSpaces;
+export default JoinedWorkSpacesModal;
