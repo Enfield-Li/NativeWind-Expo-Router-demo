@@ -1,15 +1,25 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Redirect, Stack } from "expo-router";
 import { useEffect } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 import { useAuth } from "../stores/useAuth";
 import { ACCESS_TOKEN } from "../utils/constant";
 import { refreshUserToken } from "../utils/networkCalls";
 import useNavigate from "../hooks/useNavigate";
+import useShowToast from "../hooks/useShowToast";
+import useInterceptError from "../hooks/useInterceptError";
+import {
+  loadingCircleDataUrlLight,
+  loginLogoDataUrl,
+  logoDataUrl,
+} from "../media/imgDataUrl";
+import { SvgXml } from "react-native-svg";
+import Loading from "../components/loading/Loading";
 
 export default function App() {
   const authState = useAuth();
   const navigate = useNavigate();
+  useInterceptError();
 
   //   useEffect(() => {
   //     let intervalId: NodeJS.Timer;
@@ -39,6 +49,8 @@ export default function App() {
 
       {/* <Text>loading</Text> */}
       <Redirect href="main" />
+
+      {/* <Loading /> */}
     </View>
   );
 }

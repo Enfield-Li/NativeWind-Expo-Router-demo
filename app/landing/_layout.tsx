@@ -17,6 +17,7 @@ function _layout(props: Props) {
 
       <View className="items-center mt-16">
         <SvgXml xml={loginLogoDataUrl} width={"45%"} />
+        {/* {test2} */}
       </View>
 
       <Slot />

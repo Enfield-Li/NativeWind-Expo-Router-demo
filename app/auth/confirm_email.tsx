@@ -29,7 +29,7 @@ function confirm_email(props: Props) {
       </Text>
 
       <TouchableOpacity
-        onPress={() => showToast()}
+        onPress={() => showToast("Not implemented")}
         className="w-11/12 bg-purple-500 py-3 rounded-lg mx-auto mt-14"
       >
         <Text className="text-white text-center">Open Email App</Text>
@@ -42,7 +42,7 @@ function confirm_email(props: Props) {
       </View>
 
       <TouchableOpacity
-        onPress={() => showToast()}
+        onPress={() => showToast("Not implemented")}
         className="w-11/12 py-3 rounded-lg mx-auto border border-gray-400"
       >
         <Text className="text-gray-500 text-center">Enter the code</Text>
