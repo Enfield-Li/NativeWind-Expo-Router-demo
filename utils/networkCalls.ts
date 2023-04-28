@@ -396,7 +396,7 @@ export async function createStatusCategory(
 export async function fetchTeamList(
   teamId: number,
   onSuccess: (initTeamListDTO: Team[]) => void,
-  onFailure: (msg: string) => void
+  onFailure?: (msg: string) => void
 ) {
   try {
     const response = await axiosTeamServiceInstance.get<Team[]>(
@@ -408,14 +408,13 @@ export async function fetchTeamList(
     const err = error as AxiosError;
     const response = err.response?.data as ErrorResponse;
     console.log(response);
-    onFailure(response.message);
   }
 }
 
 export async function register(
   registerCredentials: RegisterUserDTO,
   onSuccess: (data: RegistrationResponse) => void,
-  onFailure: (msg: FieldErrors) => void
+  onFailure?: (msg: FieldErrors) => void
 ) {
   try {
     const response = await axiosAuthServiceInstance.post<RegistrationResponse>(
@@ -427,19 +426,23 @@ export async function register(
   } catch (error) {
     const err = error as AxiosError;
     const response = err.response?.data as ErrorResponse;
-    onFailure(response.errors);
   }
 }
 
-export function logOut() {
+export async function logOut(onSuccess: () => void) {
   // invalidate session
-  axiosTaskServiceInstance.post(API_ENDPOINT.AUTH_LOGOUT);
+  try {
+    await axiosAuthServiceInstance.post(API_ENDPOINT.AUTH_LOGOUT);
+    onSuccess();
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 export async function login(
   loginUserDTO: LoginUserDTO,
   onSuccess: (data: AuthenticationResponse) => void,
-  onFailure: (msg: FieldErrors) => void
+  onFailure?: (msg: FieldErrors) => void
 ) {
   try {
     const response =
@@ -452,7 +455,6 @@ export async function login(
   } catch (error) {
     const err = error as AxiosError;
     const response = err.response?.data as ErrorResponse;
-    onFailure(response.errors);
   }
 }
 

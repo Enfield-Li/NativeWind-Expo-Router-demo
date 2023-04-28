@@ -16,7 +16,7 @@ import {
 import { deepCopy } from "../utils/deepCopy";
 import { immer } from "zustand/middleware/immer";
 import { determineFolderType } from "../utils/determineList";
-import { storeTeamActiveStatusToLocalStorage } from "../utils/setTeamActiveStatusToLocalStorage";
+import { storeTeamActiveStatusToStorage } from "../utils/asyncStorage";
 
 export type TeamStateType = {
   teamsForRender: Team[];
@@ -362,10 +362,10 @@ export const useTeam = create<TeamStateType>()(
 );
 
 function syncTeamStateActivity(state: TeamStateType) {
-  //   storeTeamActiveStatusToLocalStorage(
-  //     state.teamActiveStatus.teamId,
-  //     state.teamActiveStatus
-  //   );
+  storeTeamActiveStatusToStorage(
+    state.teamActiveStatus.teamId,
+    state.teamActiveStatus
+  );
   const { spaceId, teamId, listId, folderIds } = state.teamActiveStatus;
   state.teamsForRender = deepCopy(state.originalTeams);
 

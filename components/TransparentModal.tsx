@@ -1,11 +1,13 @@
 import {
   Modal,
+  ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
   TouchableWithoutFeedback,
   View,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import Icon from "react-native-vector-icons/Ionicons";
 
 type Props = {
@@ -32,13 +34,13 @@ function TransparentModal({
       onRequestClose={toggleVisiblity}
       presentationStyle="overFullScreen"
     >
-      <View className="flex-1 bg-[#000000b5]">
+      <SafeAreaView className="flex-1 bg-[#000000b5]">
         <TouchableWithoutFeedback onPress={toggleVisiblity}>
           <View className="absolute top-0 bottom-0 right-0 left-0 z-[-1]" />
         </TouchableWithoutFeedback>
 
-        <View
-          className={`absolute bg-white bottom-8 left-4 right-4 p-4 pb-8 rounded-xl ${
+        <ScrollView
+          className={`absolute bg-white bottom-8 left-4 right-4 p-4 pb-10 rounded-xl ${
             requireFullModal && "top-8"
           }`}
         >
@@ -57,8 +59,8 @@ function TransparentModal({
           </View>
 
           {children}
-        </View>
-      </View>
+        </ScrollView>
+      </SafeAreaView>
     </Modal>
   );
 }

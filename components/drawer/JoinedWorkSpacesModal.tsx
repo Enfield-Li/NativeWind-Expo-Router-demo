@@ -10,6 +10,11 @@ type Props = {
 function JoinedWorkSpacesModal({ modalVisible, toggleVisiblity }: Props) {
   const { teamsForRender, selectTeam } = useTeam();
 
+  function onSelectTeam(teamId: number) {
+    toggleVisiblity();
+    selectTeam(teamId);
+  }
+
   return (
     <TransparentModal
       title={
@@ -24,7 +29,7 @@ function JoinedWorkSpacesModal({ modalVisible, toggleVisiblity }: Props) {
       {teamsForRender.map((team) => (
         <TouchableOpacity
           key={team.id}
-          onPress={() => selectTeam(team.id!)}
+          onPress={() => onSelectTeam(team.id!)}
           className="flex-row mt-3 bg-gray-300 w-full h-12 rounded-md items-center justify-between px-3"
         >
           <View className="flex-row items-center justify-center rounded-full overflow-hidden mr-2">

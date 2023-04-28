@@ -55,8 +55,9 @@ function sign_in_with_password(props: Props) {
             <TextInput
               autoFocus
               value={password}
-              className="ml-2 flex-1"
               placeholder="Password"
+              className="ml-2 flex-1"
+              onSubmitEditing={signIn}
               secureTextEntry={hidePassword}
               onChangeText={(text) => setPassword(text)}
             />
