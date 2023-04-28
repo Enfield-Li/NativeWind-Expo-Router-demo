@@ -40,6 +40,7 @@ function TransparentModal({
         </TouchableWithoutFeedback>
 
         <ScrollView
+          showsVerticalScrollIndicator={false}
           className={`absolute bg-white bottom-8 left-4 right-4 p-4 pb-10 rounded-xl ${
             requireFullModal && "top-8"
           }`}

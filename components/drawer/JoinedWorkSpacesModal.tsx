@@ -9,10 +9,13 @@ type Props = {
 
 function JoinedWorkSpacesModal({ modalVisible, toggleVisiblity }: Props) {
   const { teamsForRender, selectTeam } = useTeam();
+  const selectedTeamId = teamsForRender.find((team) => team.isSelected)?.id;
 
   function onSelectTeam(teamId: number) {
-    toggleVisiblity();
-    selectTeam(teamId);
+    if (selectedTeamId !== teamId) {
+      toggleVisiblity();
+      selectTeam(teamId);
+    }
   }
 
   return (

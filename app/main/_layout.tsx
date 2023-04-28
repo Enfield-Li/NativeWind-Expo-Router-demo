@@ -11,12 +11,10 @@ export default function RootLayout() {
       <Stack.Screen options={{ headerShown: false }} />
 
       <Drawer
+        screenOptions={{ drawerStyle: { width: "85%" } }}
         drawerContent={({ descriptors, navigation, state }) => (
           <DrawerContent />
         )}
-        screenOptions={{
-          drawerStyle: { width: "85%" },
-        }}
       />
     </>
   );
