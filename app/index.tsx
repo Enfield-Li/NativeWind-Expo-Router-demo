@@ -2,18 +2,14 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Redirect, Stack } from "expo-router";
 import { useEffect } from "react";
 import { View } from "react-native";
-import useInitTeams from "../hooks/useInitTeams";
-import useInterceptError from "../hooks/useInterceptError";
 import useNavigate from "../hooks/useNavigate";
 import { useAuth } from "../stores/useAuth";
 import { ACCESS_TOKEN } from "../utils/constant";
 import { refreshUserToken } from "../utils/networkCalls";
-import Loading from "../components/loading/Loading";
 
 export default function App() {
   const authState = useAuth();
   const navigate = useNavigate();
-  useInterceptError();
 
   useEffect(() => {
     let intervalId: NodeJS.Timer;

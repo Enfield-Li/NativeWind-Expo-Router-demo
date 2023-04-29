@@ -6,7 +6,7 @@ type Props = {};
 
 function c_personalized_way(props: Props) {
   return (
-    <LandingSwipeTab imageSource={require("../../../media/first.png")}>
+    <LandingSwipeTab imageSource={require("../../../media/third.png")}>
       <Text>
         Personalized to the {"\n"}
         <Text>way you work.</Text>
