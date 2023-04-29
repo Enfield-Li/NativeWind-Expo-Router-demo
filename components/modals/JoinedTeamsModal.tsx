@@ -1,8 +1,8 @@
 import { Image, Text, TouchableOpacity, View } from "react-native";
-import { useTeam } from "../../../stores/useTeam";
-import TransparentModal from "../../TransparentModal";
-import { updateUserDefaultTeamId } from "../../../utils/networkCalls";
-import useNavigate from "../../../hooks/useNavigate";
+import { useTeam } from "../../stores/useTeam";
+import TransparentModal from "./TransparentModal";
+import { updateUserDefaultTeamId } from "../../utils/networkCalls";
+import useNavigate from "../../hooks/useNavigate";
 
 type Props = {
   modalVisible: boolean;

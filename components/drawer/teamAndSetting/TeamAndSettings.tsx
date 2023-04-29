@@ -10,8 +10,8 @@ import SettingsIcon from "react-native-vector-icons/Feather";
 import Icon from "react-native-vector-icons/Entypo";
 import { useAuth } from "../../../stores/useAuth";
 import { useTeam } from "../../../stores/useTeam";
-import JoinedTeamsModal from "./JoinedTeamsModal";
-import SettingsModal from "./SettingsModal";
+import JoinedTeamsModal from "../../modals/JoinedTeamsModal";
+import SettingsModal from "../../modals/SettingsModal";
 
 type Props = {};
 
