@@ -5,7 +5,7 @@ import { View } from "react-native";
 import useNavigate from "../hooks/useNavigate";
 import { useAuth } from "../stores/useAuth";
 import { ACCESS_TOKEN } from "../utils/constant";
-import { refreshUserToken } from "../utils/networkCalls";
+import { login, refreshUserToken } from "../utils/networkCalls";
 
 export default function App() {
   const authState = useAuth();
@@ -15,6 +15,13 @@ export default function App() {
     let intervalId: NodeJS.Timer;
 
     async function checkAuthStatus() {
+      await login(
+        { email: "user1@gmail.com", password: "user1user1" },
+        (res) => {
+          authState.loginUser(res);
+        }
+      );
+
       const accessToken = await AsyncStorage.getItem(ACCESS_TOKEN);
 
       if (accessToken) {

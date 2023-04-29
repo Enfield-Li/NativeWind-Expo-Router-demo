@@ -10,8 +10,8 @@ import SettingsIcon from "react-native-vector-icons/Feather";
 import Icon from "react-native-vector-icons/Entypo";
 import { useAuth } from "../../../stores/useAuth";
 import { useTeam } from "../../../stores/useTeam";
-import JoinedTeamsModal from "../JoinedTeamsModal";
-import SettingsModal from "../SettingsModal";
+import JoinedTeamsModal from "./JoinedTeamsModal";
+import SettingsModal from "./SettingsModal";
 
 type Props = {};
 
@@ -38,7 +38,7 @@ function TeamAndSettings(props: Props) {
           {/* avatar */}
           <View
             style={{ backgroundColor: user?.color }}
-            className="rounded-full w-11 h-11 items-center justify-center mr-2"
+            className="rounded-full w-10 h-10 items-center justify-center mr-2"
           >
             {/* user */}
             <Text className="text-white font-semibold text-lg">

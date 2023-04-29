@@ -1,7 +1,8 @@
 import { Image, Text, TouchableOpacity, View } from "react-native";
-import { useTeam } from "../../stores/useTeam";
-import TransparentModal from "../TransparentModal";
-import { updateUserDefaultTeamId } from "../../utils/networkCalls";
+import { useTeam } from "../../../stores/useTeam";
+import TransparentModal from "../../TransparentModal";
+import { updateUserDefaultTeamId } from "../../../utils/networkCalls";
+import useNavigate from "../../../hooks/useNavigate";
 
 type Props = {
   modalVisible: boolean;
@@ -9,11 +10,13 @@ type Props = {
 };
 
 function JoinedTeamsModal({ modalVisible, toggleVisiblity }: Props) {
+  const navigate = useNavigate();
   const { teamsForRender, selectTeam } = useTeam();
   const selectedTeamId = teamsForRender.find((team) => team.isSelected)?.id;
 
   function onSelectTeam(teamId: number) {
     if (selectedTeamId !== teamId) {
+      navigate("home");
       toggleVisiblity();
       selectTeam(teamId);
       updateUserDefaultTeamId(teamId);
