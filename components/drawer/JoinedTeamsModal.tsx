@@ -1,13 +1,14 @@
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import { useTeam } from "../../stores/useTeam";
 import TransparentModal from "../TransparentModal";
+import { updateUserDefaultTeamId } from "../../utils/networkCalls";
 
 type Props = {
   modalVisible: boolean;
   toggleVisiblity: () => void;
 };
 
-function JoinedWorkSpacesModal({ modalVisible, toggleVisiblity }: Props) {
+function JoinedTeamsModal({ modalVisible, toggleVisiblity }: Props) {
   const { teamsForRender, selectTeam } = useTeam();
   const selectedTeamId = teamsForRender.find((team) => team.isSelected)?.id;
 
@@ -15,6 +16,7 @@ function JoinedWorkSpacesModal({ modalVisible, toggleVisiblity }: Props) {
     if (selectedTeamId !== teamId) {
       toggleVisiblity();
       selectTeam(teamId);
+      updateUserDefaultTeamId(teamId);
     }
   }
 
@@ -76,4 +78,4 @@ function JoinedWorkSpacesModal({ modalVisible, toggleVisiblity }: Props) {
   );
 }
 
-export default JoinedWorkSpacesModal;
+export default JoinedTeamsModal;

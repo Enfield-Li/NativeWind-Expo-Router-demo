@@ -10,7 +10,7 @@ import SettingsIcon from "react-native-vector-icons/Feather";
 import Icon from "react-native-vector-icons/Entypo";
 import { useAuth } from "../../../stores/useAuth";
 import { useTeam } from "../../../stores/useTeam";
-import JoinedWorkSpacesModal from "../JoinedWorkSpacesModal";
+import JoinedTeamsModal from "../JoinedTeamsModal";
 import SettingsModal from "../SettingsModal";
 
 type Props = {};
@@ -64,7 +64,7 @@ function TeamAndSettings(props: Props) {
           </View>
         </View>
       </TouchableWithoutFeedback>
-      <JoinedWorkSpacesModal
+      <JoinedTeamsModal
         modalVisible={teamModalVisible}
         toggleVisiblity={toggleTeamModalVisiblity}
       />

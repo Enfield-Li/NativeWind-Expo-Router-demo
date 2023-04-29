@@ -13,7 +13,7 @@ components:
 ```
 // icon
 import Icon from "react-native-vector-icons/FontAwesome";
-<Icon size="{70}" name="paper-plane" color="rgb(122, 104, 240)" />
+<Icon size={20} name="paper-plane" color="rgb(122, 104, 240)" />
 
 // button
 <TouchableOpacity
@@ -23,7 +23,6 @@ import Icon from "react-native-vector-icons/FontAwesome";
   <Text className="text-white">Get started</Text>
 </TouchableOpacity>
 ```
-
 
 Build:
 `npx expo prebuild`
@@ -41,7 +40,7 @@ Script 'D:\development\projects\clickup_clone_mobile\node_modules\expo-modules-a
 A problem occurred evaluating project ':expo'.
 > A problem occurred configuring project ':expo-modules-core'.
    > Failed to notify project evaluation listener.
-      > SDK location not found. Define a valid SDK location with an ANDROID_HOME environment variable or by setting 
+      > SDK location not found. Define a valid SDK location with an ANDROID_HOME environment variable or by setting
 the sdk.dir path in your project's local properties file at 'D:\development\projects\clickup_clone_mobile\android\local.properties'.
       > Could not get unknown property 'release' for SoftwareComponentInternal set of type org.gradle.api.internal.component.DefaultSoftwareComponentContainer.
 

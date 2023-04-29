@@ -11,6 +11,8 @@ declare global {
       main: undefined;
       sign_in: undefined;
       my_test: undefined;
+      notifications: undefined;
+      home: undefined;
 
       auth: undefined;
       "auth/confirm_email": undefined;

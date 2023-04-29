@@ -1,12 +1,43 @@
-import { Stack, Tabs } from "expo-router";
-import Icon from "react-native-vector-icons/Icon";
-import { Image, Text, View } from "react-native";
+import { Stack } from "expo-router";
+import { View } from "react-native";
+import {
+  default as BellIcon,
+  default as SettingsIcon,
+} from "react-native-vector-icons/Feather";
+import useNavigate from "../../../hooks/useNavigate";
+import useShowToast from "../../../hooks/useShowToast";
 import { TopTabs } from "../../../utils/TopTabs";
-import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function AppLayout() {
+  const navigate = useNavigate();
+  const showToast = useShowToast();
+
   return (
     <>
+      <Stack.Screen
+        options={{
+          title: "Home",
+          headerTitleAlign: "center",
+          headerRight: ({}) => (
+            <View className="flex-row mr-4">
+              <BellIcon
+                size={20}
+                name="bell"
+                color="rgb(28, 34, 37)"
+                onPress={() => navigate("notifications")}
+                style={{ marginRight: 20 }}
+              />
+              <SettingsIcon
+                size={20}
+                name="settings"
+                color="rgb(28, 34, 37)"
+                onPress={() => showToast("Not Implemented")}
+              />
+            </View>
+          ),
+        }}
+      />
+
       <TopTabs
         initialRouteName="tab_one"
         screenOptions={{
