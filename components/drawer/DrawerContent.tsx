@@ -22,7 +22,7 @@ const DrawerContent = (props: Props) => {
 
       <ScrollView>
         <TouchableOpacity
-          onPress={() => showToast("Not implemented")}
+          onPress={() => showToast()}
           className="bg-gray-300 rounded-md mx-2 h-9 flex-row items-center px-3 mt-2"
         >
           <Icon size={18} name="search" color="gray" />
@@ -38,10 +38,9 @@ const DrawerContent = (props: Props) => {
               navigate("home");
             }
           }}
-          className={`${
-            pathname.includes("home") &&
-            "border-l-4 border-blue-600 bg-blue-200"
-          } h-12 flex-row items-center px-5 mt-3`}
+          className={`border-l-4 h-12 flex-row items-center px-3 border-white ${
+            pathname.includes("home") && " border-blue-600 bg-blue-200"
+          }  mt-3`}
         >
           <HomeIcon size={18} name="home" color="black" />
           <Text className="ml-2 text-black font-semibold">Home</Text>
@@ -54,10 +53,9 @@ const DrawerContent = (props: Props) => {
               navigate("notifications");
             }
           }}
-          className={`${
-            pathname.includes("notifications") &&
-            "border-l-4 border-blue-600 bg-blue-200"
-          } h-12 flex-row items-center px-5`}
+          className={`border-l-4 h-12 flex-row items-center px-3 border-white ${
+            pathname.includes("notifications") && "border-blue-600 bg-blue-200"
+          }`}
         >
           <Icon size={18} name="bell" color="black" />
           <Text className="ml-2 text-black font-semibold">Notifications</Text>

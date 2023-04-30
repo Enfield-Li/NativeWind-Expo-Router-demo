@@ -10,7 +10,7 @@ export default function useShowToast() {
   const toast = useToast();
 
   return (
-    message: string,
+    message: string = "Not Implemented",
     options: ToastOptions = {
       type: "danger",
       duration: 1500,

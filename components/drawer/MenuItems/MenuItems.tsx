@@ -61,7 +61,7 @@ function MenuItems(props: Props) {
           </TouchableOpacity>
 
           {menuItem.isOpen && (
-            <View className="px-5 py-2">
+            <View className="p-4">
               {menuItem.name === "Favorites" ? (
                 <Favorites />
               ) : menuItem.name === "Spaces" ? (

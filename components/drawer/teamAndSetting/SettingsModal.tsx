@@ -1,10 +1,10 @@
 import { Text, TouchableOpacity, View } from "react-native";
 import Icon from "react-native-vector-icons/AntDesign";
-import useNavigate from "../../hooks/useNavigate";
-import { useAuth } from "../../stores/useAuth";
-import { useTeam } from "../../stores/useTeam";
-import { logOut } from "../../utils/networkCalls";
-import TransparentModal from "./TransparentModal";
+import useNavigate from "../../../hooks/useNavigate";
+import { useAuth } from "../../../stores/useAuth";
+import { useTeam } from "../../../stores/useTeam";
+import { logOut } from "../../../utils/networkCalls";
+import TransparentModal from "../../modals/TransparentModal";
 
 type Props = {
   modalVisible: boolean;
