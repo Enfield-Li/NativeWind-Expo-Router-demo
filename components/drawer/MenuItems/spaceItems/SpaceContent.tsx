@@ -20,7 +20,7 @@ function SpaceContent({ allListOrFolder }: Props) {
           {determineFolderType(listOrFolder) ? (
             <Folder folder={listOrFolder} />
           ) : (
-            <List />
+            <List list={listOrFolder} />
           )}
         </Fragment>
       ))}

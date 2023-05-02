@@ -14,7 +14,7 @@ type MenuItem = { name: string; isOpen: boolean };
 
 function MenuItems(props: Props) {
   const showToast = useShowToast();
-  const [menuItems, setMenuItems] = useState<MenuItem[]>([
+  const [menuItemsTitle, setMenuItemsTitle] = useState<MenuItem[]>([
     { name: "Favorites", isOpen: false },
     { name: "Spaces", isOpen: false },
     { name: "Dashboards", isOpen: false },
@@ -22,8 +22,8 @@ function MenuItems(props: Props) {
   ]);
 
   function onSelectMenuItem(name: string) {
-    setMenuItems(
-      produce(menuItems, (draftState) => {
+    setMenuItemsTitle(
+      produce(menuItemsTitle, (draftState) => {
         draftState.forEach(
           (menuItem) =>
             menuItem.name === name && (menuItem.isOpen = !menuItem.isOpen)
@@ -34,14 +34,13 @@ function MenuItems(props: Props) {
 
   return (
     <View className="mt-1">
-      {menuItems.map((menuItem, index) => (
+      {menuItemsTitle.map((menuItem, index) => (
         <Fragment key={index}>
           {/* item top header */}
-
           <TouchableOpacity
             className={`${
               menuItem.isOpen && "bg-gray-300"
-            } p-3 flex-row justify-between items-center px-4 border-t border-slate-300`}
+            } py-3 flex-row justify-between items-center px-4 border-t border-slate-300`}
             onPress={() => onSelectMenuItem(menuItem.name)}
           >
             {/* item name */}
@@ -88,7 +87,7 @@ function MenuItems(props: Props) {
           </TouchableOpacity>
 
           {menuItem.isOpen && (
-            <View className="p-4">
+            <View className="py-4">
               {menuItem.name === "Favorites" ? (
                 <Favorites />
               ) : menuItem.name === "Spaces" ? (

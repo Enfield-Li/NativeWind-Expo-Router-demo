@@ -1,9 +1,9 @@
+import { Fragment } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React, { Fragment } from "react";
 import Icon from "react-native-vector-icons/Feather";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import { useTeam } from "../../../stores/useTeam";
 import useShowToast from "../../../hooks/useShowToast";
+import { useTeam } from "../../../stores/useTeam";
 import SpaceContent from "./spaceItems/SpaceContent";
 
 type Props = {};
@@ -13,9 +13,13 @@ function Spaces(props: Props) {
   const { teamsForRender, updateOpenedSpace } = useTeam();
   const selectedTeam = teamsForRender.find((team) => team.isSelected);
 
+  function spaceNameStyle(isSpaceOpen: boolean | null) {
+    return !isSpaceOpen ? "text-gray-700" : "text-gray-900 font-semibold";
+  }
+
   return (
     <View>
-      <TouchableOpacity onPress={() => showToast()} className="flex-row px-6">
+      <TouchableOpacity onPress={() => showToast()} className="flex-row px-10">
         <Ionicons size={18} name="md-grid-outline" color="gray" />
         <Text className="ml-4 text-gray-700">Everything</Text>
       </TouchableOpacity>
@@ -24,10 +28,13 @@ function Spaces(props: Props) {
 
       {selectedTeam?.spaces.map((space) => (
         <Fragment key={space.id}>
+          {/* space header */}
           <TouchableOpacity
             key={space.id}
             onPress={() => updateOpenedSpace(space.id)}
-            className="flex-row items-center justify-between my-2"
+            className={`flex-row items-center justify-between py-3 pl-3 pr-4 ${
+              space.isOpen && "bg-gray-300"
+            }`}
           >
             {/* left */}
             <View className="flex-row items-center ">
@@ -45,19 +52,13 @@ function Spaces(props: Props) {
                 />
               )}
 
-              <View className="bg-gray-500 h-7 w-7 pb-1 rounded-md ml-2 mr-3 justify-center">
+              {/* square */}
+              <View className="bg-gray-500 h-7 w-7 pb-1 rounded-md ml-3 mr-3 justify-center">
                 <Text className="text-white text-center">{space.name[0]}</Text>
               </View>
 
-              <Text
-                className={
-                  !space.isOpen
-                    ? "text-gray-700"
-                    : "text-gray-900 font-semibold"
-                }
-              >
-                {space.name}
-              </Text>
+              {/* space name */}
+              <Text className={spaceNameStyle(space.isOpen)}>{space.name}</Text>
             </View>
 
             {/* right */}
@@ -76,7 +77,7 @@ function Spaces(props: Props) {
 
           {/* space content */}
           {space.isOpen && (
-            <View className="ml-6">
+            <View>
               <SpaceContent allListOrFolder={space.allListOrFolder} />
             </View>
           )}
