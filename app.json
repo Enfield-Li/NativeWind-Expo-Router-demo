@@ -4,15 +4,15 @@
     "web": {
       "bundler": "metro"
     },
-    "name": "one_last_try",
-    "slug": "one_last_try",
+    "name": "clickup-clone-android",
+    "slug": "clickup-clone-android",
     "extra": {
       "eas": {
-        "projectId": "8b0e0749-ce2c-4013-b1e4-66e400e7ebae"
+        "projectId": "fd83bbe2-7975-4f97-a233-39b4e016d2be"
       }
     },
     "android": {
-      "package": "com.enfield.one_last_try"
+      "package": "com.enfield.clickupcloneandroid"
     }
   }
 }

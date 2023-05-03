@@ -1,12 +1,13 @@
 import { StyleSheet, Text, View, Image } from "react-native";
 import React from "react";
 import LandingSwipeTab from "../../../components/landing/LandingSwipeTab";
+import { landing_second } from "../../../media/imgDataUrl";
 
 type Props = {};
 
 function b_save_time(props: Props) {
   return (
-    <LandingSwipeTab imageSource={require("../../../media/second.png")}>
+    <LandingSwipeTab imageSource={landing_second}>
       <Text>
         Save one day every week, {"\n"}
         <Text>guaranteed.</Text>

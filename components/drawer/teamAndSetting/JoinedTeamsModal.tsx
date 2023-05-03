@@ -1,9 +1,9 @@
 import { Image, Text, TouchableOpacity, View } from "react-native";
-import { useTeam } from "../../../stores/useTeam";
-import TransparentModal from "../../modals/TransparentModal";
-import { updateUserDefaultTeamId } from "../../../utils/networkCalls";
 import useNavigate from "../../../hooks/useNavigate";
 import { useAuth } from "../../../stores/useAuth";
+import { useTeam } from "../../../stores/useTeam";
+import { updateUserDefaultTeamId } from "../../../utils/networkCalls";
+import TransparentModal from "../../modals/TransparentModal";
 
 type Props = {
   modalVisible: boolean;
@@ -34,7 +34,9 @@ function JoinedTeamsModal({ modalVisible, toggleVisiblity }: Props) {
       title={
         <View className="flex-row items-center">
           <Text className="font-bold mr-1">Workspaces</Text>
-          <Text className="text-slate-500 text-sm">(5)</Text>
+          <Text className="text-slate-500 text-sm">
+            ({teamsForRender.length})
+          </Text>
         </View>
       }
     >

@@ -11,7 +11,7 @@
     "@react-navigation/material-top-tabs": "^6.6.2",
     "@types/react": "~18.0.27",
     "axios": "^1.3.6",
-    "expo": "~48.0.11",
+    "expo": "~48.0.15",
     "expo-constants": "~14.2.1",
     "expo-linear-gradient": "~12.1.2",
     "expo-linking": "~4.0.1",

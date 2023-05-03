@@ -5,12 +5,13 @@ export const TEAM_ACTIVITY = "team_activity";
 export const IS_SUB_NAV_OPEN = "is_sub_nav_open";
 export const CURRENT_STATUS_CATEGORY_ID = "current_status_category_id";
 
+// 1.12.70.249
 export const SERVICE_ENDPOINT = {
-  GATEWAY: "http://10.0.2.2:8083",
-  TASK: "http://10.0.2.2:8084",
-  TEAM: "http://10.0.2.2:8088",
-  AUTHORIZATION: "http://10.0.2.2:8085",
-  TEAM_STATUS_CATEGORY: "http://10.0.2.2:8089",
+  GATEWAY: "http://1.12.70.249:8083",
+  //   TASK: "http://10.0.2.2:8084",
+  //   TEAM: "http://10.0.2.2:8088",
+  //   AUTHORIZATION: "http://10.0.2.2:8085",
+  //   TEAM_STATUS_CATEGORY: "http://10.0.2.2:8089",
   //   TASK: "http://localhost:8084",
   //   TEAM: "http://localhost:8088",
   //   AUTHORIZATION: "http://localhost:8085",

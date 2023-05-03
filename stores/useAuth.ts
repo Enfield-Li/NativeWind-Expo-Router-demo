@@ -17,6 +17,7 @@ export type AuthStateType = {
 };
 
 export const useAuth = create<AuthStateType>()(
+  // @ts-ignore
   immer((set) => ({
     user: null,
     addEmail: (email) =>

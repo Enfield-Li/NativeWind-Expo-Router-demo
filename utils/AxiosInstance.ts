@@ -1,6 +1,6 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 import { ACCESS_TOKEN, BEARER, SERVICE_ENDPOINT } from "./constant";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export function createDevAxiosInstance(baseURL: string) {
   const axiosInstance = axios.create({ baseURL });
@@ -20,20 +20,4 @@ export function createDevAxiosInstance(baseURL: string) {
 
 export const axiosGatewayInstance = createDevAxiosInstance(
   SERVICE_ENDPOINT.GATEWAY
-);
-
-export const axiosAuthServiceInstance = createDevAxiosInstance(
-  SERVICE_ENDPOINT.AUTHORIZATION
-);
-
-export const axiosTaskServiceInstance = createDevAxiosInstance(
-  SERVICE_ENDPOINT.TASK
-);
-
-export const axiosTeamServiceInstance = createDevAxiosInstance(
-  SERVICE_ENDPOINT.TEAM
-);
-
-export const axiosStatusCategoryServiceInstance = createDevAxiosInstance(
-  SERVICE_ENDPOINT.TEAM_STATUS_CATEGORY
 );

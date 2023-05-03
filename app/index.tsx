@@ -15,12 +15,12 @@ export default function App() {
     let intervalId: NodeJS.Timer;
 
     async function checkAuthStatus() {
-      await login(
-        { email: "user1@gmail.com", password: "user1user1" },
-        (res) => {
-          authState.loginUser(res);
-        }
-      );
+      //   await login(
+      //     { email: "user1@gmail.com", password: "user1user1" },
+      //     (res) => {
+      //       authState.loginUser(res);
+      //     }
+      //   );
 
       const accessToken = await AsyncStorage.getItem(ACCESS_TOKEN);
 
