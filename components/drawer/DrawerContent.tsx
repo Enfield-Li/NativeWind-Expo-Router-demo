@@ -20,7 +20,7 @@ const DrawerContent = (props: Props) => {
     <SafeAreaView className="flex-1">
       <TeamAndSettings />
 
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <TouchableOpacity
           onPress={() => showToast()}
           className="bg-gray-300 rounded-md mx-2 h-9 flex-row items-center px-3 mt-2"

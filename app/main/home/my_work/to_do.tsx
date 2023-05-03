@@ -7,14 +7,15 @@ type Props = {};
 
 const todo = (props: Props) => {
   return (
-    <View>
+    <View className="flex-1 justify-center items-center">
       <Stack.Screen
         options={{
           title: "To Do",
         }}
       />
 
-      <Text>inner_tab</Text>
+      <Text>todo</Text>
+      <Text>🛠🛠🛠 under construction 🛠🛠🛠</Text>
     </View>
   );
 };

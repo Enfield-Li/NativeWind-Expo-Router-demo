@@ -6,14 +6,15 @@ type Props = {};
 
 function comments(props: Props) {
   return (
-    <View>
+    <View className="flex-1 justify-center items-center">
       <Stack.Screen
         options={{
           title: "Comments",
         }}
       />
 
-      <Text>inner_tab</Text>
+      <Text>comments</Text>
+      <Text>🛠🛠🛠 under construction 🛠🛠🛠</Text>
     </View>
   );
 }

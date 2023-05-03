@@ -1,4 +1,4 @@
-import { useSearchParams } from "expo-router";
+import { Stack, useSearchParams } from "expo-router";
 import { StyleSheet, Text, View } from "react-native";
 import { InitListParam } from "../../types";
 
@@ -8,8 +8,11 @@ function list(props: Props) {
   const params = useSearchParams<InitListParam>();
 
   return (
-    <View>
+    <View className="flex-1 justify-center items-center">
+      <Stack.Screen options={{}} />
+
       <Text>list</Text>
+      <Text>🛠🛠🛠 under construction 🛠🛠🛠</Text>
     </View>
   );
 }

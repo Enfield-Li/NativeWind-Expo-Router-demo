@@ -20,7 +20,7 @@ function List({ list, isUnderSpace }: Props) {
       onPress={onSelectList}
       className={`
         flex-row items-center py-3 border-l-4 
-        ${isUnderSpace ? "pl-11" : "pl-16"}
+        ${isUnderSpace ? "pl-9" : "pl-16"}
         ${list.isSelected && "bg-blue-200"} 
         ${list.isSelected ? "border-blue-600" : "border-white"} 
       `}

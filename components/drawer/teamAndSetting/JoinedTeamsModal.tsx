@@ -3,6 +3,7 @@ import { useTeam } from "../../../stores/useTeam";
 import TransparentModal from "../../modals/TransparentModal";
 import { updateUserDefaultTeamId } from "../../../utils/networkCalls";
 import useNavigate from "../../../hooks/useNavigate";
+import { useAuth } from "../../../stores/useAuth";
 
 type Props = {
   modalVisible: boolean;
@@ -11,6 +12,7 @@ type Props = {
 
 function JoinedTeamsModal({ modalVisible, toggleVisiblity }: Props) {
   const navigate = useNavigate();
+  const { updateStateDefaultTeamId } = useAuth();
   const { teamsForRender, selectTeam } = useTeam();
   const selectedTeamId = teamsForRender.find((team) => team.isSelected)?.id;
 
@@ -19,20 +21,22 @@ function JoinedTeamsModal({ modalVisible, toggleVisiblity }: Props) {
       navigate("home");
       toggleVisiblity();
       selectTeam(teamId);
+      updateStateDefaultTeamId(teamId);
+
       updateUserDefaultTeamId(teamId);
     }
   }
 
   return (
     <TransparentModal
+      modalVisible={modalVisible}
+      toggleVisiblity={toggleVisiblity}
       title={
         <View className="flex-row items-center">
           <Text className="font-bold mr-1">Workspaces</Text>
           <Text className="text-slate-500 text-sm">(5)</Text>
         </View>
       }
-      modalVisible={modalVisible}
-      toggleVisiblity={toggleVisiblity}
     >
       {teamsForRender.map((team) => (
         <TouchableOpacity

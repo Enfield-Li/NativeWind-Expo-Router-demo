@@ -5,7 +5,7 @@ type Props = {};
 
 function Docs(props: Props) {
   return (
-    <View>
+    <View className="justify-center items-center">
       <Text>Docs</Text>
     </View>
   );

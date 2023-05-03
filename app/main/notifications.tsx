@@ -6,15 +6,14 @@ type Props = {};
 
 function notifications(props: Props) {
   return (
-    <>
+    <View className="flex-1 justify-center items-center">
       <Stack.Screen
         options={{ headerTitleAlign: "center", title: "Notifications" }}
       />
 
-      <View className="flex-1 justify-center items-center">
-        <Text>notifications</Text>
-      </View>
-    </>
+      <Text>notifications</Text>
+      <Text>🛠🛠🛠 under construction 🛠🛠🛠</Text>
+    </View>
   );
 }
 

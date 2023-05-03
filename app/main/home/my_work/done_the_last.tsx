@@ -7,14 +7,15 @@ type Props = {};
 
 function done(props: Props) {
   return (
-    <View>
+    <View className="flex-1 justify-center items-center">
       <Stack.Screen
         options={{
           title: "Done",
         }}
       />
 
-      <Text>inner_tab</Text>
+      <Text>done</Text>
+      <Text>🛠🛠🛠 under construction 🛠🛠🛠</Text>
     </View>
   );
 }

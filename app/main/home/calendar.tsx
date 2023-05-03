@@ -5,18 +5,18 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 type Props = {};
 
-function TabTwo(props: Props) {
+function calendar(props: Props) {
   return (
-    <View className="h-full justify-center items-center">
+    <View className="flex-1 justify-center items-center">
       <Stack.Screen options={{ headerShown: false, title: "Calendar" }} />
 
-      <Text>tabtwo page</Text>
+      <Text>calendar page</Text>
       <Text>🛠🛠🛠 under construction 🛠🛠🛠</Text>
     </View>
   );
 }
 
-export default TabTwo;
+export default calendar;
 
 const styles = StyleSheet.create({
   icon: {
