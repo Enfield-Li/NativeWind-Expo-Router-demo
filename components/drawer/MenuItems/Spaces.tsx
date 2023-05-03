@@ -33,7 +33,7 @@ function Spaces(props: Props) {
             key={space.id}
             onPress={() => updateOpenedSpace(space.id)}
             className={`flex-row items-center justify-between py-3 pl-3 pr-4 ${
-              space.isOpen && "bg-gray-300"
+              space.isOpen && "bg-gray-100"
             }`}
           >
             {/* left */}
@@ -53,7 +53,10 @@ function Spaces(props: Props) {
               )}
 
               {/* square */}
-              <View className="bg-gray-500 h-7 w-7 pb-1 rounded-md ml-3 mr-3 justify-center">
+              <View
+                style={{ backgroundColor: space.color }}
+                className="h-7 w-7 pb-1 rounded-md ml-3 mr-3 justify-center"
+              >
                 <Text className="text-white text-center">{space.name[0]}</Text>
               </View>
 

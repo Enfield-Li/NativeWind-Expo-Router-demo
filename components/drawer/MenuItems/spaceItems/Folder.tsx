@@ -23,7 +23,7 @@ function Folder({ folder }: Props) {
           {/* open */}
           <View
             className={`flex-row items-center justify-between pl-12 py-3 pr-4 ${
-              folder.isOpen && "bg-gray-300"
+              folder.isOpen && "bg-gray-100"
             }`}
           >
             {/* left */}

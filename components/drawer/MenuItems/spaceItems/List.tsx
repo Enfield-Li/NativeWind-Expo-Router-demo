@@ -21,12 +21,15 @@ function List({ list, isUnderSpace }: Props) {
       className={`
         flex-row items-center py-3 border-l-4 
         ${isUnderSpace ? "pl-9" : "pl-16"}
-        ${list.isSelected && "bg-blue-200"} 
-        ${list.isSelected ? "border-blue-600" : "border-white"} 
+        ${list.isSelected && "bg-blue-100"} 
+        ${list.isSelected ? "border-blue-300" : "border-white"} 
       `}
     >
       {/* circle */}
-      <View className="rounded-full border-2 border-gray-500 w-2 h-2 mr-4 ml-3" />
+      <View
+        style={{ backgroundColor: list.color || "gray" }}
+        className="rounded-full border-2 border-gray-500 w-2 h-2 mr-4 ml-3"
+      />
 
       {/* list name */}
       <Text>{list.name}</Text>

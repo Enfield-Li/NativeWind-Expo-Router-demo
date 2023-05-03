@@ -4,8 +4,11 @@ module.exports = {
   theme: {
     extend: {
       backgroundColor: {
-        main: "rgb(19, 22, 32)",
-        navi: "rgb(10, 12, 25)",
+        // main: "white",
+        // navi: "rgb(10, 12, 25)",
+        // rgb(239, 243, 246) // search bg  rgb(229, 231, 235) rgb(243, 244, 246)
+        // rgb(234, 236, 249) // home bg
+        // rgb(236, 240, 243) // space bg
       },
     },
   },

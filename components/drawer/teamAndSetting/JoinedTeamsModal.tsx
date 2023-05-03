@@ -44,7 +44,7 @@ function JoinedTeamsModal({ modalVisible, toggleVisiblity }: Props) {
         <TouchableOpacity
           key={team.id}
           onPress={() => onSelectTeam(team.id!)}
-          className="flex-row mt-3 bg-gray-300 w-full h-12 rounded-md items-center justify-between px-3"
+          className="flex-row mt-3 bg-gray-100 w-full h-12 rounded-md items-center justify-between px-3"
         >
           <View className="flex-row items-center justify-center rounded-full overflow-hidden mr-2">
             <View className="flex-row items-center justify-center rounded-full overflow-hidden mr-2">

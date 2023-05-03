@@ -32,7 +32,7 @@ function SettingsModal({ modalVisible, toggleVisiblity }: Props) {
     >
       <View className="mt-2 pb-2">
         <Text className="font-light text-xs">General</Text>
-        <View className="flex-row items-center bg-gray-300 rounded-md p-2 mt-1">
+        <View className="flex-row items-center bg-gray-100 rounded-md p-2 mt-1">
           <View
             style={{ backgroundColor: user?.color }}
             className="rounded-full w-10 h-10 items-center justify-center mr-2 bg-black"
@@ -51,7 +51,7 @@ function SettingsModal({ modalVisible, toggleVisiblity }: Props) {
 
         <TouchableOpacity
           onPress={onLogout}
-          className="rounded-md justify-center items-center flex-row p-4 bg-gray-300"
+          className="rounded-md justify-center items-center flex-row p-4 bg-gray-100"
         >
           <Icon size={20} name="logout" color="red" />
           <Text className="text-red-600 ml-2 font-semibold">Log out</Text>

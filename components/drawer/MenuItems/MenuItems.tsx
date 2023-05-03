@@ -39,8 +39,8 @@ function MenuItems(props: Props) {
           {/* item top header */}
           <TouchableOpacity
             className={`${
-              menuItem.isOpen && "bg-gray-300"
-            } py-3 flex-row justify-between items-center px-4 border-t border-slate-300`}
+              menuItem.isOpen && "bg-gray-100"
+            } py-3 flex-row justify-between items-center px-4 border-t border-slate-100`}
             onPress={() => onSelectMenuItem(menuItem.name)}
           >
             {/* item name */}

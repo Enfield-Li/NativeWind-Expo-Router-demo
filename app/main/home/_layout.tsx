@@ -37,6 +37,7 @@ export default function AppLayout() {
 
       <TopTabs
         initialRouteName="tab_one"
+        style={{ backgroundColor: "white" }}
         screenOptions={{
           swipeEnabled: false,
           tabBarStyle: {
@@ -44,7 +45,7 @@ export default function AppLayout() {
             borderRadius: 10,
             marginHorizontal: 15,
             shadowColor: "white",
-            backgroundColor: "rgb(227, 227, 227)",
+            backgroundColor: "rgb(245, 249, 252)",
           },
           tabBarContentContainerStyle: {
             margin: 0,
@@ -62,8 +63,8 @@ export default function AppLayout() {
             borderRadius: 10,
             borderLeftWidth: 5,
             borderRightWidth: 5,
-            backgroundColor: "white",
-            borderColor: "rgb(227, 227, 227)",
+            backgroundColor: "rgb(245, 249, 252)",
+            borderColor: "rgb(245, 249, 252)",
           },
         }}
       />

@@ -23,7 +23,7 @@ const DrawerContent = (props: Props) => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <TouchableOpacity
           onPress={() => showToast()}
-          className="bg-gray-300 rounded-md mx-2 h-9 flex-row items-center px-3 mt-2"
+          className="bg-gray-100 rounded-md mx-2 h-9 flex-row items-center px-3 mt-2"
         >
           <Icon size={18} name="search" color="gray" />
           <Text className="ml-2 text-gray-500">Search</Text>
@@ -39,7 +39,7 @@ const DrawerContent = (props: Props) => {
             }
           }}
           className={`border-l-4 h-12 flex-row items-center px-3 border-white ${
-            pathname.includes("home") && " border-blue-600 bg-blue-200"
+            pathname.includes("home") && " border-blue-600 bg-blue-100"
           }  mt-3`}
         >
           <HomeIcon size={18} name="home" color="black" />
@@ -54,7 +54,7 @@ const DrawerContent = (props: Props) => {
             }
           }}
           className={`border-l-4 h-12 flex-row items-center px-3 border-white ${
-            pathname.includes("notifications") && "border-blue-600 bg-blue-200"
+            pathname.includes("notifications") && "border-blue-600 bg-blue-100"
           }`}
         >
           <Icon size={18} name="bell" color="black" />

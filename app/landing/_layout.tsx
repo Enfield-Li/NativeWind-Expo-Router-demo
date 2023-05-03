@@ -25,7 +25,7 @@ function _layout(props: Props) {
       {/* tailwind button */}
       <Link
         href="/auth/sign_in"
-        className="w-11/12 bg-purple-500 py-3 rounded-lg mx-auto mb-6 text-center"
+        className="w-11/12 bg-purple-600 py-3 rounded-lg mx-auto mb-6 text-center"
       >
         <Text className="text-white">Get started</Text>
       </Link>

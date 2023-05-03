@@ -18,7 +18,7 @@ function confirm_email(props: Props) {
         }}
       />
 
-      <View className="bg-gray-200 rounded-lg p-6">
+      <View className="bg-gray-100 rounded-lg p-6">
         <Icon size={70} name="paper-plane" color="rgb(122, 104, 240)" />
       </View>
       <Text className="text-xl font-bold tracking-wide mt-6">
@@ -50,7 +50,7 @@ function confirm_email(props: Props) {
 
       <TouchableOpacity
         onPress={() => navigation.navigate("auth/SSO_login")}
-        className="absolute bottom-[-80] left-0 right-0 h-14 bg-slate-300 justify-center items-center border-t border-gray-400"
+        className="absolute bottom-[-80] left-0 right-0 h-14 bg-slate-100 justify-center items-center border-t border-gray-400"
       >
         <Text className="text-blue-700">Other SIgn in Options</Text>
       </TouchableOpacity>
