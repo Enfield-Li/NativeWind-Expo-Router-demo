@@ -1,14 +1,36 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { ListCategory } from "../../../../types";
+import { useTeam } from "../../../../stores/useTeam";
+import useNavigate from "../../../../hooks/useNavigate";
 
-type Props = { list: ListCategory };
+type Props = { list: ListCategory; isUnderSpace?: boolean };
 
-function List({ list }: Props) {
+function List({ list, isUnderSpace }: Props) {
+  const navigate = useNavigate();
+  const { selectList } = useTeam();
+
+  function onSelectList() {
+    selectList(list);
+    navigate("list", { listId: 1, statusCategoryId: 2 });
+  }
+
   return (
-    <View className="pl-6">
-      <Text>List</Text>
-    </View>
+    <TouchableOpacity
+      onPress={onSelectList}
+      className={`
+        flex-row items-center py-3 border-l-4 
+        ${isUnderSpace ? "pl-11" : "pl-16"}
+        ${list.isSelected && "bg-blue-200"} 
+        ${list.isSelected ? "border-blue-600" : "border-white"} 
+      `}
+    >
+      {/* circle */}
+      <View className="rounded-full border-2 border-gray-500 w-2 h-2 mr-4 ml-3" />
+
+      {/* list name */}
+      <Text>{list.name}</Text>
+    </TouchableOpacity>
   );
 }
 

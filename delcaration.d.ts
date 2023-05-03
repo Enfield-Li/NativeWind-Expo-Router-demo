@@ -1,4 +1,4 @@
-import { NavigatorScreenParams } from "@react-navigation/native";
+import { InitListParam } from "./types";
 
 export {};
 
@@ -7,6 +7,8 @@ declare global {
   export namespace ReactNavigation {
     // eslint-disable-next-line @typescript-eslint/no-empty-interface
     interface RootParamList {
+      list: InitListParam;
+
       landing: undefined;
       main: undefined;
       sign_in: undefined;

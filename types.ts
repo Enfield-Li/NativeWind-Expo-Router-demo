@@ -1,5 +1,7 @@
 // import { DropResult } from "@hello-pangea/dnd";
 
+export type InitListParam = { statusCategoryId: number; listId: number };
+
 // Sorting options
 export enum GroupBy {
   STATUS = "status",
