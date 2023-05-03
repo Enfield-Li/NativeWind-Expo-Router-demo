@@ -1,9 +1,12 @@
+import { useSearchParams } from "expo-router";
 import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import { InitListParam } from "../../types";
 
 type Props = {};
 
 function list(props: Props) {
+  const params = useSearchParams<InitListParam>();
+
   return (
     <View>
       <Text>list</Text>

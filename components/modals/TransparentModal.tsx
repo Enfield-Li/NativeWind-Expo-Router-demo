@@ -39,13 +39,12 @@ function TransparentModal({
           <View className="absolute top-0 bottom-0 right-0 left-0 z-[-1]" />
         </TouchableWithoutFeedback>
 
-        <ScrollView
-          showsVerticalScrollIndicator={false}
-          className={`absolute bg-white bottom-8 left-4 right-4 p-4 pb-10 rounded-xl ${
+        <View
+          className={`absolute bg-white bottom-8 left-4 right-4 p-4 rounded-xl ${
             requireFullModal && "top-8"
           }`}
         >
-          <View className="flex-row justify-between items-center mb-2">
+          <View className="flex-row justify-between items-center ">
             {/* Title */}
             {typeof title === "string" ? (
               <Text className="font-bold mr-1">{title}</Text>
@@ -59,8 +58,10 @@ function TransparentModal({
             </TouchableOpacity>
           </View>
 
-          {children}
-        </ScrollView>
+          <ScrollView showsVerticalScrollIndicator={false}>
+            {children}
+          </ScrollView>
+        </View>
       </SafeAreaView>
     </Modal>
   );

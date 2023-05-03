@@ -1,9 +1,6 @@
 import { Stack } from "expo-router";
 import { View } from "react-native";
-import {
-  default as BellIcon,
-  default as SettingsIcon,
-} from "react-native-vector-icons/Feather";
+import Icon from "react-native-vector-icons/Feather";
 import useNavigate from "../../../hooks/useNavigate";
 import useShowToast from "../../../hooks/useShowToast";
 import { TopTabs } from "../../../utils/TopTabs";
@@ -20,14 +17,14 @@ export default function AppLayout() {
           headerTitleAlign: "center",
           headerRight: ({}) => (
             <View className="flex-row mr-4">
-              <BellIcon
+              <Icon
                 size={20}
                 name="bell"
                 color="rgb(28, 34, 37)"
                 onPress={() => navigate("notifications")}
                 style={{ marginRight: 20 }}
               />
-              <SettingsIcon
+              <Icon
                 size={20}
                 name="settings"
                 color="rgb(28, 34, 37)"

@@ -30,7 +30,7 @@ function SettingsModal({ modalVisible, toggleVisiblity }: Props) {
       modalVisible={modalVisible}
       toggleVisiblity={toggleVisiblity}
     >
-      <View className="mt-2 pb-8">
+      <View className="mt-2 pb-2">
         <Text className="font-light text-xs">General</Text>
         <View className="flex-row items-center bg-gray-300 rounded-md p-2 mt-1">
           <View

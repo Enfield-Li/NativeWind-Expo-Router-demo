@@ -12,7 +12,7 @@ function List({ list, isUnderSpace }: Props) {
 
   function onSelectList() {
     selectList(list);
-    navigate("list", { listId: 1, statusCategoryId: 2 });
+    navigate("list", { listId: String(1), statusCategoryId: String(2) });
   }
 
   return (
