@@ -35,7 +35,7 @@ function sign_in_with_password(props: Props) {
   }
 
   return (
-    <View className="flex-1 items-center">
+    <View className="flex-1 items-center bg-white">
       <Stack.Screen
         options={{
           headerTitle: "Sign in",

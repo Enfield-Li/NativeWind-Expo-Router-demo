@@ -19,7 +19,7 @@ function TabOne() {
             shadowColor: "white",
             alignItems: "center",
             borderBottomWidth: 1,
-            borderBottomColor: "rgb(200, 200, 200)",
+            borderBottomColor: "rgb(223, 223, 223)",
           },
           tabBarItemStyle: {
             width: "auto",

@@ -57,7 +57,7 @@ export default function AppLayout() {
           },
           tabBarInactiveTintColor: "gray",
           tabBarActiveTintColor: "blue",
-          tabBarPressColor: "rgb(227, 227, 227)",
+          tabBarPressColor: "rgb(245, 249, 252)",
           tabBarIndicatorStyle: {
             height: 25,
             marginBottom: 5,

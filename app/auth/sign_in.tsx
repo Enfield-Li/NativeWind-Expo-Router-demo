@@ -25,7 +25,7 @@ export default function sign_in({}: Props) {
   }
 
   return (
-    <View className="flex-1 justify-center mb-20">
+    <View className="flex-1 justify-center mb-20 bg-white">
       <Stack.Screen
         options={{
           title: "Email",
@@ -49,7 +49,7 @@ export default function sign_in({}: Props) {
         }}
       />
 
-      <View className="mx-4">
+      <View className="mx-4  bg-white">
         <Text className="text-gray-600 text-lg">Your email address</Text>
 
         <TextInput
