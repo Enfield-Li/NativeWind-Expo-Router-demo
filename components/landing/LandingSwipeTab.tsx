@@ -10,7 +10,7 @@ type Props = {
 
 export default function LandingSwipeTab({ imageSource, children }: Props) {
   return (
-    <View className="items-center justify-center flex-1">
+    <View className="items-center justify-center flex-1 bg-white">
       <Image
         resizeMode="contain"
         className="w-full h-60"

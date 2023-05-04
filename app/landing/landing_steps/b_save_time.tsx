@@ -7,7 +7,7 @@ type Props = {};
 
 function b_save_time(props: Props) {
   return (
-    <LandingSwipeTab imageSource={landing_second}>
+    <LandingSwipeTab imageSource={landing_second} >
       <Text>
         Save one day every week, {"\n"}
         <Text>guaranteed.</Text>

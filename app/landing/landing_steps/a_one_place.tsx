@@ -1,4 +1,4 @@
-import { StyleSheet, Text } from "react-native";
+import { Text } from "react-native";
 import LandingSwipeTab from "../../../components/landing/LandingSwipeTab";
 import { landing_first } from "../../../media/imgDataUrl";
 
@@ -15,10 +15,3 @@ function a_one_place(props: Props) {
 }
 
 export default a_one_place;
-
-const styles = StyleSheet.create({
-  top: {
-    position: "absolute",
-    top: 2,
-  },
-});

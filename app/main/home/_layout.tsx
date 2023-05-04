@@ -10,7 +10,7 @@ export default function AppLayout() {
   const showToast = useShowToast();
 
   return (
-    <>
+    <View className="flex-1 bg-white">
       <Stack.Screen
         options={{
           title: "Home",
@@ -37,11 +37,12 @@ export default function AppLayout() {
 
       <TopTabs
         initialRouteName="tab_one"
-        style={{ backgroundColor: "white" }}
+        className="bg-white"
         screenOptions={{
           swipeEnabled: false,
           tabBarStyle: {
             height: 35,
+            marginBottom: 5,
             borderRadius: 10,
             marginHorizontal: 15,
             shadowColor: "white",
@@ -63,11 +64,11 @@ export default function AppLayout() {
             borderRadius: 10,
             borderLeftWidth: 5,
             borderRightWidth: 5,
-            backgroundColor: "rgb(245, 249, 252)",
+            backgroundColor: "white",
             borderColor: "rgb(245, 249, 252)",
           },
         }}
       />
-    </>
+    </View>
   );
 }

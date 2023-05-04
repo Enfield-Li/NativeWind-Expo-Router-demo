@@ -7,7 +7,7 @@ type Props = {};
 
 function calendar(props: Props) {
   return (
-    <View className="flex-1 justify-center items-center">
+    <View className="flex-1 justify-center items-center bg-white">
       <Stack.Screen options={{ headerShown: false, title: "Calendar" }} />
 
       <Text>calendar page</Text>

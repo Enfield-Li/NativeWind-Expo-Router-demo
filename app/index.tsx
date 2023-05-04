@@ -41,7 +41,7 @@ export default function App() {
   }, []);
 
   return (
-    <View className="flex-1 items-center justify-center">
+    <View className="flex-1 items-center justify-center bg-white">
       <Stack.Screen options={{ headerShown: false }} />
 
       <Redirect href="landing" />

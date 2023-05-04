@@ -5,9 +5,9 @@ import { Stack } from "expo-router";
 
 type Props = {};
 
-const todo = (props: Props) => {
+function todo(props: Props) {
   return (
-    <View className="flex-1 justify-center items-center">
+    <View className="flex-1 justify-center items-center bg-white">
       <Stack.Screen
         options={{
           title: "To Do",
@@ -18,7 +18,7 @@ const todo = (props: Props) => {
       <Text>🛠🛠🛠 under construction 🛠🛠🛠</Text>
     </View>
   );
-};
+}
 
 export default todo;
 

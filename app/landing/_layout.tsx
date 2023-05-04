@@ -8,7 +8,7 @@ type Props = {};
 
 function _layout(props: Props) {
   return (
-    <>
+    <View className="flex-1 bg-white">
       <Stack.Screen
         options={{
           headerShown: false,
@@ -29,7 +29,7 @@ function _layout(props: Props) {
       >
         <Text className="text-white">Get started</Text>
       </Link>
-    </>
+    </View>
   );
 }
 

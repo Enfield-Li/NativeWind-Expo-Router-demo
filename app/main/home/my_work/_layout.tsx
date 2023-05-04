@@ -15,6 +15,7 @@ function TabOne() {
           tabBarStyle: {
             height: 50,
             width: "100%",
+            marginTop: -5,
             shadowColor: "white",
             alignItems: "center",
             borderBottomWidth: 1,
