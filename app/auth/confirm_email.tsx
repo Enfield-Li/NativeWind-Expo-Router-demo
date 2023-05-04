@@ -10,7 +10,7 @@ function confirm_email(props: Props) {
   const navigation = useNavigation();
 
   return (
-    <View className="flex-1 justify-center items-center mb-20">
+    <View className="flex-1 justify-center items-center pb-20 bg-white">
       <Stack.Screen
         options={{
           title: "",
@@ -36,21 +36,21 @@ function confirm_email(props: Props) {
       </TouchableOpacity>
 
       <View className="my-5 items-center flex-row">
-        <View className="border-b w-1/3 border-slate-300" />
-        <Text className="text-gray-500 mx-5 text-xs">OR</Text>
-        <View className="border-b w-1/3 border-slate-300" />
+        <View className="border-b w-1/3 border-slate-100" />
+        <Text className="text-gray-400 mx-5 text-xs">OR</Text>
+        <View className="border-b w-1/3 border-slate-100" />
       </View>
 
       <TouchableOpacity
         onPress={() => showToast()}
-        className="w-11/12 py-3 rounded-lg mx-auto border border-gray-400"
+        className="w-11/12 py-3 rounded-lg mx-auto border border-gray-200"
       >
-        <Text className="text-gray-500 text-center">Enter the code</Text>
+        <Text className="text-gray-400 text-center">Enter the code</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
         onPress={() => navigation.navigate("auth/SSO_login")}
-        className="absolute bottom-[-80] left-0 right-0 h-14 bg-slate-100 justify-center items-center border-t border-gray-400"
+        className="absolute bottom-0 left-0 right-0 h-14 bg-slate-100 justify-center items-center border-t border-gray-200"
       >
         <Text className="text-blue-700">Other SIgn in Options</Text>
       </TouchableOpacity>

@@ -8,7 +8,7 @@ function SSO_login(props: Props) {
   const navigation = useNavigation();
 
   return (
-    <View className="flex-1">
+    <View className="flex-1 bg-white">
       <Stack.Screen
         options={{
           headerTitleAlign: "center",
